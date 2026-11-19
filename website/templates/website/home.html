@@ -1,0 +1,335 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BODHIX Innovations brings creativity and technology together to turn ideas into useful digital experiences.">
+  <meta name="theme-color" content="#f7f7f5">
+  <title>BODHIX Innovations — Think beyond digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=23">
+  <script src="{% static 'website/js/site.js' %}?v=14" defer></script>
+  <script src="{% static 'website/js/intro-universe.js' %}?v=13" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-logo-link" href="#top">
+      <img class="brand-logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__icon" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Our approach</a>
+      <a class="nav-cta" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <nav class="intro-nav" aria-label="Opening navigation">
+        <a class="intro-nav__brand" href="#top">
+          <img class="intro-nav__logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+        </a>
+        <a class="intro-nav__explore" href="#about">Scroll to explore <span aria-hidden="true">↓</span></a>
+      </nav>
+      <div class="hero__media" data-hero-carousel role="region" aria-roledescription="carousel" aria-label="BODHIX Innovations services">
+        <div class="hero__slides">
+          <article class="hero__slide hero__slide--intro is-active" role="group" aria-roledescription="slide" aria-label="1 of 5: Ideas into experiences" aria-hidden="false">
+            <video class="hero__video" {% if showreel_available %}controls preload="metadata"{% endif %} playsinline poster="{% static 'website/images/showreel-poster.svg' %}" aria-label="BODHIX Innovations showreel">
+              {% if showreel_available %}
+              <source src="{{ media_url }}videos/bodhix-showreel.mp4" type="video/mp4">
+              {% endif %}
+              Your browser does not support HTML video.
+            </video>
+            <canvas class="hero__neural" data-neural-background aria-hidden="true"></canvas>
+            {% if not showreel_available %}
+            <p class="video-note">Your showreel goes here <span>Upload to media/videos/bodhix-showreel.mp4</span></p>
+            {% endif %}
+            <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="hero__copy hero__copy--intro">
+              <p class="eyebrow eyebrow--light"><span class="status-dot"></span> Creative technology studio</p>
+              <h1 class="hero__title" id="hero-title">Let’s think beyond<br><span>digital.</span></h1>
+              <p class="hero__description">We bring ambitious ideas to life with thoughtful design, creative technology and stories people remember.</p>
+              <div class="hero__actions">
+                <a class="button button--light" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
+                <a class="text-link text-link--light" href="#services">Explore services <span aria-hidden="true">↓</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="hero__slide hero__slide--software" role="group" aria-roledescription="slide" aria-label="2 of 5: Software development" aria-hidden="true" inert>
+            <img src="{{ media_url }}software%20development.jpeg" alt="Software developer working with a laptop and connected devices" loading="lazy">
+            <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="hero__copy">
+              <p class="eyebrow eyebrow--light">Engineering <span>01 / 04</span></p>
+              <h2 class="hero__title">Software<br><span>development.</span></h2>
+              <p class="hero__description">Custom web applications, mobile apps and business systems built around the way you work.</p>
+              <div class="hero__actions">
+                <a class="button button--light" href="#contact">Discuss this service <span aria-hidden="true">↗</span></a>
+                <a class="text-link text-link--light" href="#service-software-development">View details <span aria-hidden="true">↓</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="hero__slide hero__slide--web" role="group" aria-roledescription="slide" aria-label="3 of 5: Web design and development" aria-hidden="true" inert>
+            <img src="{% static 'website/images/service-web.jpg' %}?v=2" alt="Analytics dashboard displayed on a laptop" loading="lazy">
+            <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="hero__copy">
+              <p class="eyebrow eyebrow--light">Digital experience <span>02 / 04</span></p>
+              <h2 class="hero__title">Web design &amp;<br><span>development.</span></h2>
+              <p class="hero__description">Modern, responsive websites with thoughtful design, reliable development and room to grow.</p>
+              <div class="hero__actions">
+                <a class="button button--light" href="#contact">Discuss this service <span aria-hidden="true">↗</span></a>
+                <a class="text-link text-link--light" href="#service-web-design">View details <span aria-hidden="true">↓</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="hero__slide hero__slide--brand" role="group" aria-roledescription="slide" aria-label="4 of 5: Brand identity" aria-hidden="true" inert>
+            <img src="{% static 'website/images/service-brand.jpg' %}?v=2" alt="Designer working on a visual identity with a digital tablet" loading="lazy">
+            <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="hero__copy">
+              <p class="eyebrow eyebrow--light">Identity design <span>03 / 04</span></p>
+              <h2 class="hero__title">Brand<br><span>identity.</span></h2>
+              <p class="hero__description">A distinctive visual identity and voice that helps your brand stay memorable.</p>
+              <div class="hero__actions">
+                <a class="button button--light" href="#contact">Discuss this service <span aria-hidden="true">↗</span></a>
+                <a class="text-link text-link--light" href="#service-brand-identity">View details <span aria-hidden="true">↓</span></a>
+              </div>
+            </div>
+          </article>
+          <article class="hero__slide hero__slide--graphic" role="group" aria-roledescription="slide" aria-label="5 of 5: Graphic design" aria-hidden="true" inert>
+            <img src="{% static 'website/images/service-graphic.jpg' %}?v=2" alt="Colorful paintbrushes in a creative studio" loading="lazy">
+            <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="hero__copy">
+              <p class="eyebrow eyebrow--light">Visual storytelling <span>04 / 04</span></p>
+              <h2 class="hero__title">Graphic<br><span>design.</span></h2>
+              <p class="hero__description">Creative visuals for social media, campaigns, packaging and more.</p>
+              <div class="hero__actions">
+                <a class="button button--light" href="#contact">Discuss this service <span aria-hidden="true">↗</span></a>
+                <a class="text-link text-link--light" href="#service-graphic-design">View details <span aria-hidden="true">↓</span></a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="hero__carousel-controls hero__carousel-controls--hero">
+          <p class="hero__carousel-count"><span data-slide-current>01</span> <span aria-hidden="true">/</span> 05</p>
+          <div>
+            <button type="button" data-carousel-prev aria-label="Previous slide">←</button>
+            <button type="button" data-carousel-pause aria-label="Pause automatic slide rotation" aria-pressed="false">Ⅱ</button>
+            <button type="button" data-carousel-next aria-label="Next slide">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="hero__foot">
+        <span>LET’S THINK BEYOND DIGITAL.</span>
+        <a href="#about">Scroll to explore <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="intro section-wrap" id="about" aria-labelledby="intro-title" data-experience-section>
+      <span class="intro__wash intro__wash--one" aria-hidden="true"></span>
+      <span class="intro__wash intro__wash--two" aria-hidden="true"></span>
+      <span class="intro__word intro__word--left" aria-hidden="true">IDEAS</span>
+      <span class="intro__word intro__word--right" aria-hidden="true">IMPACT</span>
+      <div class="section-label"><span>01</span> Who we are</div>
+      <div class="intro__content">
+        <p class="eyebrow">Where creativity meets technology</p>
+        <div class="intro__headline">
+          <h2 id="intro-title">We turn ideas<br>into <span class="gradient-text">experiences.</span></h2>
+          <div class="intro__visual" data-experience-visual aria-hidden="true">
+            <canvas class="intro__universe" data-intro-universe></canvas>
+            <div class="intro__visual-fallback">
+              <div class="intro__orbit intro__orbit--outer"><span>MAKE IT MATTER</span></div>
+              <div class="intro__orbit intro__orbit--inner"></div>
+              <div class="intro__visual-core">
+                <span class="intro__core-mark">B</span>
+                <span class="intro__core-label">IDEA / IMPACT</span>
+              </div>
+              <span class="intro__chip intro__chip--one">THINK</span>
+              <span class="intro__chip intro__chip--two">DESIGN</span>
+              <span class="intro__chip intro__chip--three">BUILD</span>
+            </div>
+          </div>
+        </div>
+        <div class="intro__bottom">
+          <p class="intro__statement">We are thinkers, makers and storytellers who turn ideas into things people can see, use and feel. We build the smart tools behind the scenes and craft the stories that make people stop scrolling.</p>
+          <p class="intro__detail">Like the bodhi leaf, our name carries the idea of awakening: seeing what is possible and growing toward it. Technology gives us structure, creativity gives us soul, and together they help brands become experiences people remember.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services section-wrap" id="services" aria-labelledby="services-title">
+      <div class="section-heading">
+        <div>
+          <div class="section-label"><span>02</span> What we do</div>
+          <h2 id="services-title">Built for what’s next.</h2>
+        </div>
+        <p>Everything your brand needs to grow, under one roof. From the first idea to the final click, we design, build and grow brands that people remember.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card service-card--brand" id="service-brand-identity">
+          <span class="service-card__number">01</span>
+          <figure class="service-card__media">
+            <img src="{% static 'website/images/service-brand.jpg' %}" alt="Brand designer developing a visual identity on a tablet" loading="lazy">
+            <span>Identity / 01</span>
+          </figure>
+          <h3>Brand identity</h3>
+          <p>Build a memorable brand with a strong look and voice.</p>
+          <ul class="service-card__list">
+            <li>Logo design and variations</li>
+            <li>Colour, typography and patterns</li>
+            <li>Brand voice and positioning</li>
+            <li>Guidelines and social kits</li>
+          </ul>
+          <a href="#contact" aria-label="Discuss brand identity">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card service-card--graphic" id="service-graphic-design">
+          <span class="service-card__number">02</span>
+          <figure class="service-card__media">
+            <img src="{% static 'website/images/service-graphic.jpg' %}" alt="Paintbrushes creating a vibrant graphic design palette" loading="lazy">
+            <span>Visuals / 02</span>
+          </figure>
+          <h3>Graphic design</h3>
+          <p>Create creative visuals that capture attention and communicate clearly.</p>
+          <ul class="service-card__list">
+            <li>Social media creatives</li>
+            <li>Print, signage and presentations</li>
+            <li>Advertising and promotions</li>
+            <li>Packaging and label design</li>
+          </ul>
+          <a href="#contact" aria-label="Discuss graphic design">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card" id="service-web-design">
+          <span class="service-card__number">03</span>
+          <div class="service-card__symbol service-card__symbol--orange" aria-hidden="true">⌁</div>
+          <h3>Web design &amp; development</h3>
+          <p>Modern, user-friendly websites built to perform and grow.</p>
+          <ul class="service-card__list">
+            <li>Desktop and mobile websites</li>
+            <li>E-commerce and booking systems</li>
+            <li>CMS, SEO and speed setup</li>
+            <li>Security, launch and support</li>
+          </ul>
+          <a href="#contact" aria-label="Discuss web design and development">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card" id="service-software-development">
+          <span class="service-card__number">04</span>
+          <div class="service-card__symbol service-card__symbol--blue" aria-hidden="true">◈</div>
+          <h3>Software development</h3>
+          <p>Custom software and apps built around your business needs.</p>
+          <ul class="service-card__list">
+            <li>Web and mobile applications</li>
+            <li>CRM, ERP and dashboards</li>
+            <li>Booking and inventory systems</li>
+            <li>API integrations and automation</li>
+          </ul>
+          <a href="#contact" aria-label="Discuss software development">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card">
+          <span class="service-card__number">05</span>
+          <div class="service-card__symbol" aria-hidden="true">▶</div>
+          <h3>Content creation</h3>
+          <p>Photos, videos and words that tell your story with purpose.</p>
+          <ul class="service-card__list">
+            <li>Photography and videography</li>
+            <li>Reels and short-form video</li>
+            <li>Editing and motion graphics</li>
+            <li>Copywriting and storytelling</li>
+          </ul>
+          <a href="#contact" aria-label="Discuss content creation">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card">
+          <span class="service-card__number">06</span>
+          <div class="service-card__symbol service-card__symbol--violet" aria-hidden="true">◎</div>
+          <h3>Social media management</h3>
+          <p>Build a consistent, engaging presence that connects with your audience.</p>
+          <ul class="service-card__list">
+            <li>Strategy and content calendars</li>
+            <li>Content, captions and scheduling</li>
+            <li>Community engagement</li>
+            <li>Paid campaigns and reporting</li>
+          </ul>
+          <a href="#contact" aria-label="Discuss social media management">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="belief section-wrap" aria-labelledby="belief-title">
+      <div class="section-label"><span>03</span> The BODHIX difference</div>
+      <div class="belief__main">
+        <p class="eyebrow eyebrow--light">Clever technology. Bold imagination.</p>
+        <h2 id="belief-title">Good ideas deserve<br>to go <span>further.</span></h2>
+      </div>
+      <div class="belief__points">
+        <article><span>01</span><h3>Think creatively</h3><p>Start with possibility. Find a fresh way to make an idea matter.</p></article>
+        <article><span>02</span><h3>Make it useful</h3><p>Shape the right experience around people and real business needs.</p></article>
+        <article><span>03</span><h3>Build with purpose</h3><p>Turn the chosen direction into thoughtful, dependable digital work.</p></article>
+      </div>
+      <div class="belief__orb belief__orb--one" aria-hidden="true"></div>
+      <div class="belief__orb belief__orb--two" aria-hidden="true"></div>
+    </section>
+
+    <section class="work section-wrap" id="work" aria-labelledby="work-title">
+      <div class="section-label"><span>04</span> Selected work</div>
+      <div class="work__card">
+        <div class="work__art" aria-hidden="true">
+          <span class="work__art-ring work__art-ring--one"></span>
+          <span class="work__art-ring work__art-ring--two"></span>
+          <span class="work__art-caption">THE NEXT<br>CHAPTER</span>
+          <span class="work__art-mark">B.</span>
+        </div>
+        <div class="work__copy">
+          <p class="eyebrow">A work in progress</p>
+          <h2 id="work-title">Building what’s next.</h2>
+          <p>We’re making room for the projects that tell the BODHIX story. Real work, shared with permission, will appear here soon.</p>
+          <span class="work__tag"><span></span> Case studies coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="process section-wrap" id="process" aria-labelledby="process-title">
+      <div class="section-heading">
+        <div>
+          <div class="section-label"><span>05</span> How we work</div>
+          <h2 id="process-title">From first thought<br>to what’s next.</h2>
+        </div>
+        <p>A considered process gives good ideas the space to become useful digital experiences.</p>
+      </div>
+      <ol class="process-list">
+        <li><span>01</span><h3>Discover</h3><p>Understand the people, challenge and opportunity.</p></li>
+        <li><span>02</span><h3>Define</h3><p>Set a clear direction, scope and shared priorities.</p></li>
+        <li><span>03</span><h3>Design</h3><p>Shape the experience and bring the solution to life.</p></li>
+        <li><span>04</span><h3>Build</h3><p>Develop, test and refine with care and purpose.</p></li>
+        <li><span>05</span><h3>Improve</h3><p>Launch, learn and make space for what comes next.</p></li>
+      </ol>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact__inner">
+        <p class="eyebrow eyebrow--light">Your idea starts here</p>
+        <h2 id="contact-title">Have an idea?<br>Let’s make it <span>real.</span></h2>
+        <p class="contact__text">Tell us what you’re imagining and let’s shape it into something memorable.</p>
+        <a class="button button--light" href="https://bodhixinnovations.com" target="_blank" rel="noopener noreferrer">Visit bodhixinnovations.com <span aria-hidden="true">↗</span></a>
+      </div>
+      <span class="contact__flare contact__flare--one" aria-hidden="true"></span>
+      <span class="contact__flare contact__flare--two" aria-hidden="true"></span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand-logo-link brand-logo-link--footer" href="#top">
+      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <p>We turn ideas into experiences.</p>
+    <span>© {% now "Y" %} BODHIX Innovations</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>
