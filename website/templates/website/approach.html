@@ -1,0 +1,123 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn how BODHIX Innovations takes ideas from discovery through design, building, launch and improvement.">
+  <meta name="theme-color" content="#f7f7f5">
+  <title>Our Approach — BODHIX Innovations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=26">
+  <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-logo-link" href="{% url 'home' %}#top">
+      <img class="brand-logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__icon" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'work' %}">Work</a>
+      <a href="{% url 'approach' %}" aria-current="page">Our approach</a>
+      <a class="nav-cta" href="#approach-contact">Start a project <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="approach-page-hero" id="top" aria-labelledby="approach-page-title">
+      <nav class="intro-nav" aria-label="Opening navigation">
+        <a class="intro-nav__brand" href="{% url 'home' %}#top">
+          <img class="intro-nav__logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+        </a>
+        <a class="intro-nav__explore" href="#approach-steps">See the steps <span aria-hidden="true">↓</span></a>
+      </nav>
+      <div class="approach-page-hero__content">
+        <p class="eyebrow">Our approach</p>
+        <h1 id="approach-page-title">From idea<br><span>to impact.</span></h1>
+        <p>A thoughtful, collaborative process helps turn ambitious ideas into useful digital experiences.</p>
+        <a class="button approach-page-hero__button" href="#approach-steps">Explore the process <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="approach-page-hero__visual" aria-hidden="true">
+        <p>THE PROCESS</p>
+        <ol>
+          <li><span>01</span>Discover</li>
+          <li><span>02</span>Define</li>
+          <li><span>03</span>Design</li>
+          <li><span>04</span>Build</li>
+          <li><span>05</span>Improve</li>
+        </ol>
+      </div>
+      <div class="approach-page-hero__foot">
+        <span>LISTEN / SHAPE / MAKE</span>
+        <span>01 — 05</span>
+      </div>
+    </section>
+
+    <section class="approach-steps section-wrap" id="approach-steps" aria-labelledby="approach-steps-title">
+      <div class="section-heading">
+        <div>
+          <div class="section-label"><span>01</span> The process</div>
+          <h2 id="approach-steps-title">Good work, built<br>step by step.</h2>
+        </div>
+        <p>Every project is different. These steps give us a clear way to understand the challenge, make considered decisions and create work with purpose.</p>
+      </div>
+      <ol class="approach-steps__list">
+        <li>
+          <span class="approach-steps__number">01</span>
+          <div><h3>Discover</h3><p>We listen, ask questions and learn about your goals, audience and the challenge you want to solve.</p></div>
+          <span class="approach-steps__focus">Listen / Understand / Explore</span>
+        </li>
+        <li>
+          <span class="approach-steps__number">02</span>
+          <div><h3>Define</h3><p>We bring the important details into focus, agree on priorities and shape a clear direction for the work.</p></div>
+          <span class="approach-steps__focus">Focus / Prioritize / Align</span>
+        </li>
+        <li>
+          <span class="approach-steps__number">03</span>
+          <div><h3>Design</h3><p>We explore the experience, structure and visual direction, then refine the approach around your needs.</p></div>
+          <span class="approach-steps__focus">Imagine / Shape / Refine</span>
+        </li>
+        <li>
+          <span class="approach-steps__number">04</span>
+          <div><h3>Build</h3><p>We develop the solution, test how it works and make thoughtful adjustments along the way.</p></div>
+          <span class="approach-steps__focus">Create / Test / Improve</span>
+        </li>
+        <li>
+          <span class="approach-steps__number">05</span>
+          <div><h3>Improve</h3><p>We launch, learn from how the work is used and identify opportunities to make it better over time.</p></div>
+          <span class="approach-steps__focus">Launch / Learn / Evolve</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="contact" id="approach-contact" aria-labelledby="approach-contact-title">
+      <div class="contact__inner">
+        <p class="eyebrow eyebrow--light">Your idea starts here</p>
+        <h2 id="approach-contact-title">Ready to make<br>something <span>matter?</span></h2>
+        <p class="contact__text">Tell us what you’re imagining and we’ll find the right way to bring it to life.</p>
+        <a class="button button--light" href="https://bodhixinnovations.com" target="_blank" rel="noopener noreferrer">Start a conversation <span aria-hidden="true">↗</span></a>
+      </div>
+      <span class="contact__flare contact__flare--one" aria-hidden="true"></span>
+      <span class="contact__flare contact__flare--two" aria-hidden="true"></span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
+      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <p>We turn ideas into experiences.</p>
+    <span>© {% now "Y" %} BODHIX Innovations</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>

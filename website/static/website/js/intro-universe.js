@@ -149,7 +149,7 @@ if (universeCanvas && universeSection && universeVisual) {
 
       vec3 studioReflection(vec3 direction) {
         float horizon = smoothstep(-0.45, 0.55, direction.y);
-        vec3 environment = mix(vec3(0.018, 0.028, 0.055), vec3(0.16, 0.21, 0.31), horizon);
+        vec3 environment = mix(vec3(0.22, 0.24, 0.29), vec3(0.82, 0.85, 0.88), horizon);
         vec2 keyPanel = (direction.xy - vec2(0.3, 0.58)) * vec2(3.0, 2.0);
         vec2 rimPanel = (direction.xy - vec2(-0.58, -0.12)) * vec2(2.2, 3.8);
         vec2 violetPanel = (direction.xy - vec2(0.68, -0.3)) * vec2(3.2, 2.0);
@@ -158,10 +158,10 @@ if (universeCanvas && universeSection && universeVisual) {
         float bluePanel = exp(-dot(rimPanel, rimPanel));
         float purplePanel = exp(-dot(violetPanel, violetPanel));
         float amberPanel = exp(-dot(warmPanel, warmPanel));
-        environment += vec3(0.96, 0.98, 1.0) * whitePanel * 0.92;
-        environment += vec3(0.12, 0.62, 1.0) * bluePanel * 0.76;
-        environment += vec3(0.5, 0.2, 0.92) * purplePanel * 0.62;
-        environment += vec3(1.0, 0.48, 0.16) * amberPanel * 0.42;
+        environment += vec3(1.0, 0.99, 0.94) * whitePanel * 0.72;
+        environment += vec3(0.18, 0.55, 0.9) * bluePanel * 0.46;
+        environment += vec3(0.48, 0.28, 0.82) * purplePanel * 0.38;
+        environment += vec3(0.96, 0.48, 0.18) * amberPanel * 0.26;
         return environment;
       }
 

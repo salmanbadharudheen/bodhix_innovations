@@ -1,5 +1,6 @@
 import os
 import shutil
+import stat
 import sys
 from pathlib import Path
 
@@ -8,6 +9,17 @@ import django
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DIST_DIR = BASE_DIR / 'dist'
+
+
+def remove_tree(path: Path) -> None:
+    if not path.exists():
+        return
+
+    def make_writable(function, target, exc_info):
+        os.chmod(target, stat.S_IWRITE)
+        function(target)
+
+    shutil.rmtree(path, onerror=make_writable)
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bodhix_innovations.settings')
 sys.path.insert(0, str(BASE_DIR))
@@ -26,19 +38,27 @@ def write_page(path: str, content: bytes) -> None:
 
 DIST_DIR.mkdir(parents=True, exist_ok=True)
 
-for relative_path in ('index.html', 'services'):
+for relative_path in ('index.html', 'about', 'services', 'work', 'approach'):
     existing_path = DIST_DIR / relative_path
     if existing_path.is_file():
         existing_path.unlink()
 
 services_dir = DIST_DIR / 'services'
-if services_dir.is_dir():
-    shutil.rmtree(services_dir)
+remove_tree(services_dir)
+about_dir = DIST_DIR / 'about'
+remove_tree(about_dir)
+work_dir = DIST_DIR / 'work'
+remove_tree(work_dir)
+approach_dir = DIST_DIR / 'approach'
+remove_tree(approach_dir)
 
 client = Client(HTTP_HOST='localhost')
 pages = (
     ('/', 'index.html'),
+    ('/about/', 'about/index.html'),
     ('/services/', 'services/index.html'),
+    ('/work/', 'work/index.html'),
+    ('/approach/', 'approach/index.html'),
 )
 
 for url, output_path in pages:
@@ -58,13 +78,11 @@ call_command(
 
 static_output = DIST_DIR / 'static'
 static_output.parent.mkdir(parents=True, exist_ok=True)
-if static_output.exists():
-    shutil.rmtree(static_output)
+remove_tree(static_output)
 shutil.copytree(settings.STATIC_ROOT, static_output)
 
 media_output = DIST_DIR / 'media'
-if media_output.exists():
-    shutil.rmtree(media_output)
+remove_tree(media_output)
 if settings.MEDIA_ROOT.exists():
     shutil.copytree(settings.MEDIA_ROOT, media_output)
 

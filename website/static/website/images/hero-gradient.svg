@@ -21,7 +21,5 @@
   </g>
   <path stroke="url(#ribbon)" stroke-linecap="round" stroke-width="2" opacity=".8" d="M219 625c152-354 310-376 467-115 127 211 263 293 412 117 74-88 131-204 219-313"/>
   <path stroke="url(#ribbon)" stroke-linecap="round" stroke-width="1" opacity=".35" d="M175 686c176-364 342-431 523-142 144 231 280 319 431 142 75-88 129-183 203-269"/>
-  <circle cx="1095" cy="526" r="205" stroke="#fff" stroke-opacity=".13"/>
-  <circle cx="1095" cy="526" r="276" stroke="#fff" stroke-opacity=".07"/>
   <path fill="#fff" fill-opacity=".08" d="M1344 128h1v1h-1zM1282 189h1v1h-1zM1424 320h1v1h-1zM1192 130h1v1h-1zM1471 565h1v1h-1zM1322 709h1v1h-1zM112 360h1v1h-1zM264 172h1v1h-1zM392 774h1v1h-1z"/>
 </svg>

@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=23">
-  <script src="{% static 'website/js/site.js' %}?v=14" defer></script>
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=26">
+  <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
 </head>
 <body class="service-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,10 +24,10 @@
       <span class="menu-toggle__icon" aria-hidden="true"></span>
     </button>
     <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
-      <a href="{% url 'home' %}#about">About</a>
+      <a href="{% url 'about' %}">About</a>
       <a href="{% url 'services' %}" aria-current="page">Services</a>
-      <a href="{% url 'home' %}#work">Work</a>
-      <a href="{% url 'home' %}#process">Our approach</a>
+      <a href="{% url 'work' %}">Work</a>
+      <a href="{% url 'approach' %}">Our approach</a>
       <a class="nav-cta" href="#services-contact">Start a project <span aria-hidden="true">↗</span></a>
     </nav>
   </header>

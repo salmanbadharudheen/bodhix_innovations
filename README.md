@@ -12,15 +12,13 @@ python manage.py runserver
 ```
 
 Open http://127.0.0.1:8000/ for the homepage and
-http://127.0.0.1:8000/services/ for the dedicated services page.
+http://127.0.0.1:8000/about/, http://127.0.0.1:8000/services/,
+http://127.0.0.1:8000/work/, and http://127.0.0.1:8000/approach/ for the
+dedicated About, Services, Work, and Our Approach pages.
 
 Uploaded media files are stored in the `media/` folder and served from `/media/`
 during local development. Configure your production web server or object storage
 to serve uploaded media before deployment.
-
-To add the homepage showreel, place an MP4 video at
-`media/videos/bodhix-showreel.mp4`. The landing page includes a designed poster
-until the video is added.
 
 ## Netlify deployment
 
@@ -35,5 +33,6 @@ To build the static deployment locally:
 python scripts/export_static.py
 ```
 
-The output is written to `dist/`, with `/services/index.html` for the dedicated
-services page and copies of the Django static and media assets.
+The output is written to `dist/`, with `/about/index.html`,
+`/services/index.html`, `/work/index.html`, and `/approach/index.html` for the
+dedicated pages, plus copies of the Django static and media assets.

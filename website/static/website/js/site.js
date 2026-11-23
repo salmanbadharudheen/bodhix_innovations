@@ -162,15 +162,15 @@ if (neuralCanvas) {
 
     const makeParticles = () => {
       const isSmallScreen = window.matchMedia("(max-width: 640px)").matches;
-      const count = Math.max(isSmallScreen ? 20 : 30, Math.min(isSmallScreen ? 30 : 56, Math.round(width * height / (isSmallScreen ? 29000 : 28000))));
+      const count = Math.max(isSmallScreen ? 44 : 60, Math.min(isSmallScreen ? 64 : 136, Math.round(width * height / (isSmallScreen ? 16000 : 16000))));
 
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
         depth: .18 + Math.random() * .82,
         radius: .8 + Math.random() * 1.45,
-        vx: (Math.random() - .5) * 13,
-        vy: (Math.random() - .5) * 9,
+        vx: (Math.random() - .5) * 18,
+        vy: (Math.random() - .5) * 13,
         hue: Math.random() > .52 ? 192 : 258,
         renderX: 0,
         renderY: 0,
@@ -198,14 +198,6 @@ if (neuralCanvas) {
 
       const pointerX = pointer.x * 17;
       const pointerY = pointer.y * 17;
-      const beamX = width * (.63 + Math.sin(elapsed * .12) * .17 + pointer.x * .012);
-      const beamY = height * (.34 + Math.cos(elapsed * .1) * .1 + pointer.y * .012);
-      const atmosphere = context.createRadialGradient(beamX, beamY, 0, beamX, beamY, Math.max(width, height) * .72);
-      atmosphere.addColorStop(0, "rgba(45, 99, 190, .12)");
-      atmosphere.addColorStop(.38, "rgba(94, 51, 166, .055)");
-      atmosphere.addColorStop(1, "rgba(0, 0, 0, 0)");
-      context.fillStyle = atmosphere;
-      context.fillRect(0, 0, width, height);
 
       context.save();
       context.globalCompositeOperation = "lighter";
@@ -213,7 +205,7 @@ if (neuralCanvas) {
       for (let wave = 0; wave < waveCount; wave += 1) {
         const baseY = height * (.28 + wave * .16);
         const amplitude = height * (.035 + wave * .008);
-        const phase = elapsed * (.3 + wave * .035) + wave * 1.7 + pointerX * .001;
+        const phase = elapsed * (.4 + wave * .045) + wave * 1.7 + pointerX * .001;
         const gradient = context.createLinearGradient(0, baseY - amplitude, width, baseY + amplitude);
         gradient.addColorStop(0, "rgba(66, 212, 255, 0)");
         gradient.addColorStop(.34, `rgba(73, 171, 255, ${.06 + wave * .008})`);
@@ -264,11 +256,11 @@ if (neuralCanvas) {
           const neighbor = particles[second];
           const dx = x - neighbor.renderX;
           const dy = y - neighbor.renderY;
-          const maxDistance = 112 + (particle.depth + neighbor.depth) * 43;
+          const maxDistance = 122 + (particle.depth + neighbor.depth) * 48;
           const distanceSquared = dx * dx + dy * dy;
           if (distanceSquared < maxDistance * maxDistance) {
             const distance = Math.sqrt(distanceSquared);
-            const strength = (1 - distance / maxDistance) * Math.min(particle.depth, neighbor.depth) * .28;
+            const strength = (1 - distance / maxDistance) * Math.min(particle.depth, neighbor.depth) * .36;
             const alphaBand = Math.min(3, Math.floor(strength / .07));
             const colorBand = particle.hue > 220 ? 4 : 0;
             connectionPaths[colorBand + alphaBand].push(x, y, neighbor.renderX, neighbor.renderY);
@@ -276,7 +268,7 @@ if (neuralCanvas) {
         }
       }
 
-      context.lineWidth = .8;
+      context.lineWidth = .7;
       for (let group = 0; group < connectionPaths.length; group += 1) {
         const path = connectionPaths[group];
         if (!path.length) continue;
@@ -286,7 +278,7 @@ if (neuralCanvas) {
           context.lineTo(path[index + 2], path[index + 3]);
         }
         context.strokeStyle = group >= 4 ? "rgb(157, 121, 255)" : "rgb(75, 204, 255)";
-        context.globalAlpha = .07 + (group % 4) * .055;
+        context.globalAlpha = .08 + (group % 4) * .05;
         context.stroke();
       }
 
@@ -299,11 +291,11 @@ if (neuralCanvas) {
         const radius = particle.radius * (.45 + particle.depth * .72);
         context.beginPath();
         context.arc(x, y, radius * 2.8, 0, Math.PI * 2);
-        context.fillStyle = `hsla(${particle.hue}, 100%, 68%, ${(.045 + particle.depth * .08) * pulse})`;
+        context.fillStyle = `hsla(${particle.hue}, 100%, 68%, ${(.055 + particle.depth * .09) * pulse})`;
         context.fill();
         context.beginPath();
         context.arc(x, y, radius, 0, Math.PI * 2);
-        context.fillStyle = `hsla(${particle.hue}, 100%, 86%, ${(.34 + particle.depth * .52) * pulse})`;
+        context.fillStyle = `hsla(${particle.hue}, 100%, 86%, ${(.4 + particle.depth * .52) * pulse})`;
         context.fill();
       }
       context.restore();
@@ -381,7 +373,6 @@ if (heroCarousel) {
   const previousButton = heroCarousel.querySelector("[data-carousel-prev]");
   const pauseButton = heroCarousel.querySelector("[data-carousel-pause]");
   const nextButton = heroCarousel.querySelector("[data-carousel-next]");
-  const introVideo = heroCarousel.querySelector(".hero__slide--intro .hero__video");
   const currentCount = heroCarousel.querySelector("[data-slide-current]");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
@@ -396,10 +387,6 @@ if (heroCarousel) {
       slide.classList.toggle("is-active", isActive);
       slide.setAttribute("aria-hidden", String(!isActive));
       slide.inert = !isActive;
-      const video = slide.querySelector("video");
-      if (!isActive && video && !video.paused) {
-        video.pause();
-      }
     });
 
     if (currentCount) {
@@ -414,7 +401,7 @@ if (heroCarousel) {
 
   const startAutoAdvance = () => {
     stopAutoAdvance();
-    if (userPaused || reducedMotion.matches || document.hidden || (introVideo && !introVideo.paused && !introVideo.ended) || heroCarousel.matches(":hover") || heroCarousel.contains(document.activeElement)) {
+    if (userPaused || reducedMotion.matches || document.hidden || heroCarousel.matches(":hover") || heroCarousel.contains(document.activeElement)) {
       return;
     }
     autoAdvanceTimer = window.setInterval(() => showSlide(activeIndex + 1), 6000);
@@ -438,11 +425,6 @@ if (heroCarousel) {
           startAutoAdvance();
         }
       });
-    }
-    if (introVideo) {
-      introVideo.addEventListener("play", stopAutoAdvance);
-      introVideo.addEventListener("pause", startAutoAdvance);
-      introVideo.addEventListener("ended", startAutoAdvance);
     }
     heroCarousel.addEventListener("mouseenter", stopAutoAdvance);
     heroCarousel.addEventListener("mouseleave", startAutoAdvance);

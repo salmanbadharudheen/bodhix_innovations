@@ -1,0 +1,100 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore selected work from BODHIX Innovations. Real projects, shared with permission.">
+  <meta name="theme-color" content="#f7f7f5">
+  <title>Work — BODHIX Innovations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=26">
+  <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-logo-link" href="{% url 'home' %}#top">
+      <img class="brand-logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__icon" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'work' %}" aria-current="page">Work</a>
+      <a href="{% url 'approach' %}">Our approach</a>
+      <a class="nav-cta" href="#work-contact">Start a project <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="work-page-hero" id="top" aria-labelledby="work-page-title">
+      <nav class="intro-nav" aria-label="Opening navigation">
+        <a class="intro-nav__brand" href="{% url 'home' %}#top">
+          <img class="intro-nav__logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+        </a>
+        <a class="intro-nav__explore" href="#selected-work">Explore our work <span aria-hidden="true">↓</span></a>
+      </nav>
+      <div class="work-page-hero__art" aria-hidden="true">
+        <span class="work-page-hero__art-index">IDEA / FORM / IMPACT</span>
+        <span class="work-page-hero__art-shape work-page-hero__art-shape--one"></span>
+        <span class="work-page-hero__art-shape work-page-hero__art-shape--two"></span>
+        <span class="work-page-hero__art-caption">IDEAS<br>IN MOTION</span>
+      </div>
+      <div class="work-page-hero__content">
+        <p class="eyebrow">Selected work</p>
+        <h1 id="work-page-title">Made to<br><span>matter.</span></h1>
+        <p>Our portfolio is taking shape. We’ll share projects here as they’re ready to tell, with permission and the details that matter.</p>
+        <a class="button work-page-hero__button" href="#selected-work">Explore our work <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="work-page-hero__foot">
+        <span>THINK / DESIGN / BUILD</span>
+        <span>IDEA → IMPACT</span>
+      </div>
+    </section>
+
+    <section class="work section-wrap" id="selected-work" aria-labelledby="work-title">
+      <div class="section-label"><span>01</span> Selected work</div>
+      <div class="work__card">
+        <div class="work__art" aria-hidden="true">
+          <span class="work__art-ring work__art-ring--one"></span>
+          <span class="work__art-ring work__art-ring--two"></span>
+          <span class="work__art-caption">THE NEXT<br>CHAPTER</span>
+          <span class="work__art-mark">B.</span>
+        </div>
+        <div class="work__copy">
+          <p class="eyebrow">A work in progress</p>
+          <h2 id="work-title">Good work, thoughtfully shared.</h2>
+          <p>We’ll share projects here as they’re ready to tell, with permission and the details that matter.</p>
+          <span class="work__tag"><span></span> Case studies coming soon</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-page-contact" id="work-contact" aria-labelledby="work-contact-title">
+      <span class="service-page-contact__orb service-page-contact__orb--one" aria-hidden="true"></span>
+      <span class="service-page-contact__orb service-page-contact__orb--two" aria-hidden="true"></span>
+      <div class="service-page-contact__inner">
+        <p class="eyebrow eyebrow--light">Have a project in mind?</p>
+        <h2 id="work-contact-title">Let’s make<br>something <span>meaningful.</span></h2>
+        <p>Tell us what you’re imagining and we’ll find the right way to bring it to life.</p>
+        <a class="button button--light" href="https://bodhixinnovations.com" target="_blank" rel="noopener noreferrer">Start a conversation <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
+      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <p>We turn ideas into experiences.</p>
+    <span>© {% now "Y" %} BODHIX Innovations</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>

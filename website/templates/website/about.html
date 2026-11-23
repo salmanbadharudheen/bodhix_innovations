@@ -1,0 +1,112 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meet BODHIX Innovations: creative thinkers and makers bringing design and technology together to turn ideas into experiences.">
+  <meta name="theme-color" content="#f7f7f5">
+  <title>About — BODHIX Innovations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=26">
+  <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
+</head>
+<body class="about-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-logo-link" href="{% url 'home' %}#top">
+      <img class="brand-logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__icon" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+      <a href="{% url 'about' %}" aria-current="page">About</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'work' %}">Work</a>
+      <a href="{% url 'approach' %}">Our approach</a>
+      <a class="nav-cta" href="#about-contact">Start a project <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="about-page-hero" id="top" aria-labelledby="about-page-title">
+      <nav class="intro-nav" aria-label="Opening navigation">
+        <a class="intro-nav__brand" href="{% url 'home' %}#top">
+          <img class="intro-nav__logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+        </a>
+        <a class="intro-nav__explore" href="#about-story">Discover our story <span aria-hidden="true">↓</span></a>
+      </nav>
+      <div class="about-page-hero__content">
+        <p class="eyebrow eyebrow--light"><span class="status-dot"></span> About BODHIX</p>
+        <h1 id="about-page-title">Creative<br><span>thinking.</span></h1>
+        <p>We bring ambitious ideas to life with thoughtful design, creative technology and stories people remember.</p>
+        <a class="button button--light" href="#about-story">Discover our story <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="about-page-hero__visual" aria-hidden="true">
+        <span class="about-page-hero__orbit about-page-hero__orbit--outer"></span>
+        <span class="about-page-hero__orbit about-page-hero__orbit--inner"></span>
+        <div class="about-page-hero__core">
+          <span class="about-page-hero__mark">B.</span>
+          <span class="about-page-hero__label">IDEA / IMPACT</span>
+        </div>
+        <span class="about-page-hero__chip about-page-hero__chip--one">THINK</span>
+        <span class="about-page-hero__chip about-page-hero__chip--two">MAKE</span>
+      </div>
+      <div class="about-page-hero__foot">
+        <span>THINK / DESIGN / BUILD</span>
+        <span>IDEAS INTO EXPERIENCES</span>
+      </div>
+    </section>
+
+    <section class="about-story section-wrap" id="about-story" aria-labelledby="about-story-title">
+      <div class="section-label"><span>01</span> Who we are</div>
+      <div class="about-story__inner">
+        <h2 id="about-story-title">We turn ideas<br>into <span>experiences.</span></h2>
+        <div class="about-story__copy">
+          <p>We are thinkers, makers and storytellers who turn ideas into things people can see, use and feel. We build the smart tools behind the scenes and craft the stories that make people stop scrolling.</p>
+          <p>Like the bodhi leaf, our name carries the idea of awakening: seeing what is possible and growing toward it. Technology gives us structure, creativity gives us soul, and together they help brands become experiences people remember.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="belief section-wrap" aria-labelledby="belief-title">
+      <div class="section-label"><span>02</span> The BODHIX difference</div>
+      <div class="belief__main">
+        <p class="eyebrow eyebrow--light">Clever technology. Bold imagination.</p>
+        <h2 id="belief-title">Good ideas deserve<br>to go <span>further.</span></h2>
+      </div>
+      <div class="belief__points">
+        <article><span>01</span><h3>Think creatively</h3><p>Start with possibility. Find a fresh way to make an idea matter.</p></article>
+        <article><span>02</span><h3>Make it useful</h3><p>Shape the right experience around people and real business needs.</p></article>
+        <article><span>03</span><h3>Build with purpose</h3><p>Turn the chosen direction into thoughtful, dependable digital work.</p></article>
+      </div>
+      <div class="belief__orb belief__orb--one" aria-hidden="true"></div>
+      <div class="belief__orb belief__orb--two" aria-hidden="true"></div>
+    </section>
+
+    <section class="contact" id="about-contact" aria-labelledby="about-contact-title">
+      <div class="contact__inner">
+        <p class="eyebrow eyebrow--light">Let’s make something meaningful</p>
+        <h2 id="about-contact-title">Have an idea?<br>Let’s make it <span>real.</span></h2>
+        <p class="contact__text">Tell us what you’re imagining and let’s shape it into something memorable.</p>
+        <a class="button button--light" href="https://bodhixinnovations.com" target="_blank" rel="noopener noreferrer">Start a conversation <span aria-hidden="true">↗</span></a>
+      </div>
+      <span class="contact__flare contact__flare--one" aria-hidden="true"></span>
+      <span class="contact__flare contact__flare--two" aria-hidden="true"></span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
+      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <p>We turn ideas into experiences.</p>
+    <span>© {% now "Y" %} BODHIX Innovations</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+</body>
+</html>

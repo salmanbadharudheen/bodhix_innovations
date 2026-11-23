@@ -1,13 +1,9 @@
-from pathlib import Path
-from tempfile import TemporaryDirectory
-
 from django.test import TestCase
-from django.test import override_settings
 from django.urls import reverse
 
 
 class HomePageTests(TestCase):
-    def test_homepage_contains_video_and_service_photo_carousel(self):
+    def test_homepage_contains_animated_hero_and_service_photo_carousel_without_video(self):
         response = self.client.get(reverse('home'))
 
         self.assertEqual(response.status_code, 200)
@@ -17,8 +13,9 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'data-neural-background')
         self.assertContains(response, 'data-intro-universe')
         self.assertContains(response, 'js/intro-universe.js')
-        self.assertContains(response, 'class="hero__video"')
-        self.assertContains(response, 'website/images/showreel-poster.svg')
+        self.assertNotContains(response, '<video')
+        self.assertNotContains(response, 'showreel')
+        self.assertNotContains(response, 'video-note')
         self.assertContains(response, '1 of 5: Ideas into experiences')
         self.assertContains(response, '2 of 5: Software development')
         self.assertContains(response, '3 of 5: Web design and development')
@@ -37,21 +34,6 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'id="process"')
         self.assertContains(response, 'id="contact"')
 
-    def test_showreel_is_added_to_intro_slide_only_when_available(self):
-        with TemporaryDirectory() as media_root:
-            with override_settings(MEDIA_ROOT=Path(media_root)):
-                response = self.client.get(reverse('home'))
-                self.assertContains(response, 'Your showreel goes here')
-                self.assertNotContains(response, '<source src="/media/videos/bodhix-showreel.mp4"')
-
-                video_path = Path(media_root) / 'videos' / 'bodhix-showreel.mp4'
-                video_path.parent.mkdir()
-                video_path.write_bytes(b'video placeholder')
-                response = self.client.get(reverse('home'))
-
-        self.assertContains(response, '<source src="/media/videos/bodhix-showreel.mp4"')
-        self.assertNotContains(response, 'Your showreel goes here')
-
     def test_featured_service_slides_link_to_their_service_cards(self):
         response = self.client.get(reverse('home'))
 
@@ -69,6 +51,53 @@ class HomePageTests(TestCase):
         response = self.client.get(reverse('home'))
 
         self.assertContains(response, f'href="{reverse("services")}"')
+
+    def test_about_is_available_as_a_dedicated_page(self):
+        response = self.client.get(reverse('about'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'id="about-page-title"')
+        self.assertContains(response, 'id="about-story"')
+        self.assertContains(response, 'Clever technology. Bold imagination.')
+
+    def test_about_navigation_links_to_the_dedicated_page(self):
+        for page_name in ('home', 'about', 'services', 'work', 'approach'):
+            with self.subTest(page=page_name):
+                response = self.client.get(reverse(page_name))
+                self.assertContains(response, f'href="{reverse("about")}"')
+
+    def test_approach_is_available_as_a_dedicated_page(self):
+        response = self.client.get(reverse('approach'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'id="approach-page-title"')
+        self.assertContains(response, 'id="approach-steps"')
+        for step in ('Discover', 'Define', 'Design', 'Build', 'Improve'):
+            with self.subTest(step=step):
+                self.assertContains(response, f'>{step}<')
+
+    def test_approach_navigation_links_to_the_dedicated_page(self):
+        for page_name in ('home', 'about', 'services', 'work'):
+            with self.subTest(page=page_name):
+                response = self.client.get(reverse(page_name))
+                self.assertContains(response, f'href="{reverse("approach")}"')
+
+    def test_work_is_available_as_a_dedicated_page(self):
+        response = self.client.get(reverse('work'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'class="work-page-hero"')
+        self.assertNotContains(response, 'class="service-page-hero"')
+        self.assertContains(response, 'id="work-page-title"')
+        self.assertContains(response, 'Case studies coming soon')
+
+    def test_work_navigation_links_to_the_dedicated_page(self):
+        response = self.client.get(reverse('home'))
+
+        self.assertContains(response, f'href="{reverse("work")}"')
+        self.assertNotContains(response, 'id="work"')
+        response = self.client.get(reverse('services'))
+        self.assertContains(response, f'href="{reverse("work")}"')
 
     def test_service_page_lists_all_services_and_applies_parallax_sections(self):
         response = self.client.get(reverse('services'))

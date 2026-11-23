@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=23">
-  <script src="{% static 'website/js/site.js' %}?v=14" defer></script>
-  <script src="{% static 'website/js/intro-universe.js' %}?v=13" defer></script>
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=28">
+  <script src="{% static 'website/js/site.js' %}?v=18" defer></script>
+  <script src="{% static 'website/js/intro-universe.js' %}?v=14" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -25,10 +25,10 @@
       <span class="menu-toggle__icon" aria-hidden="true"></span>
     </button>
     <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
-      <a href="#about">About</a>
+      <a href="{% url 'about' %}">About</a>
       <a href="{% url 'services' %}">Services</a>
-      <a href="#work">Work</a>
-      <a href="#process">Our approach</a>
+      <a href="{% url 'work' %}">Work</a>
+      <a href="{% url 'approach' %}">Our approach</a>
       <a class="nav-cta" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
@@ -44,16 +44,7 @@
       <div class="hero__media" data-hero-carousel role="region" aria-roledescription="carousel" aria-label="BODHIX Innovations services">
         <div class="hero__slides">
           <article class="hero__slide hero__slide--intro is-active" role="group" aria-roledescription="slide" aria-label="1 of 5: Ideas into experiences" aria-hidden="false">
-            <video class="hero__video" {% if showreel_available %}controls preload="metadata"{% endif %} playsinline poster="{% static 'website/images/showreel-poster.svg' %}" aria-label="BODHIX Innovations showreel">
-              {% if showreel_available %}
-              <source src="{{ media_url }}videos/bodhix-showreel.mp4" type="video/mp4">
-              {% endif %}
-              Your browser does not support HTML video.
-            </video>
             <canvas class="hero__neural" data-neural-background aria-hidden="true"></canvas>
-            {% if not showreel_available %}
-            <p class="video-note">Your showreel goes here <span>Upload to media/videos/bodhix-showreel.mp4</span></p>
-            {% endif %}
             <div class="hero__scrim" aria-hidden="true"></div>
             <div class="hero__copy hero__copy--intro">
               <p class="eyebrow eyebrow--light"><span class="status-dot"></span> Creative technology studio</p>
@@ -276,28 +267,10 @@
       <div class="belief__orb belief__orb--two" aria-hidden="true"></div>
     </section>
 
-    <section class="work section-wrap" id="work" aria-labelledby="work-title">
-      <div class="section-label"><span>04</span> Selected work</div>
-      <div class="work__card">
-        <div class="work__art" aria-hidden="true">
-          <span class="work__art-ring work__art-ring--one"></span>
-          <span class="work__art-ring work__art-ring--two"></span>
-          <span class="work__art-caption">THE NEXT<br>CHAPTER</span>
-          <span class="work__art-mark">B.</span>
-        </div>
-        <div class="work__copy">
-          <p class="eyebrow">A work in progress</p>
-          <h2 id="work-title">Building what’s next.</h2>
-          <p>We’re making room for the projects that tell the BODHIX story. Real work, shared with permission, will appear here soon.</p>
-          <span class="work__tag"><span></span> Case studies coming soon</span>
-        </div>
-      </div>
-    </section>
-
     <section class="process section-wrap" id="process" aria-labelledby="process-title">
       <div class="section-heading">
         <div>
-          <div class="section-label"><span>05</span> How we work</div>
+          <div class="section-label"><span>04</span> How we work</div>
           <h2 id="process-title">From first thought<br>to what’s next.</h2>
         </div>
         <p>A considered process gives good ideas the space to become useful digital experiences.</p>
@@ -309,6 +282,9 @@
         <li><span>04</span><h3>Build</h3><p>Develop, test and refine with care and purpose.</p></li>
         <li><span>05</span><h3>Improve</h3><p>Launch, learn and make space for what comes next.</p></li>
       </ol>
+      <div class="process__more">
+        <a class="text-link" href="{% url 'approach' %}">Explore our approach <span aria-hidden="true">↗</span></a>
+      </div>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
