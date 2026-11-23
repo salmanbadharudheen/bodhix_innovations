@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
   <defs>
     <linearGradient id="wash" x1="180" y1="70" x2="1400" y2="850" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#241510"/>
-      <stop offset=".48" stop-color="#1a1626"/>
-      <stop offset="1" stop-color="#111c2a"/>
+      <stop stop-color="#16120e"/>
+      <stop offset=".48" stop-color="#101017"/>
+      <stop offset="1" stop-color="#09090b"/>
     </linearGradient>
     <linearGradient id="ribbon" x1="280" y1="250" x2="1330" y2="650" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F8A72B"/>
@@ -16,7 +16,7 @@
     </filter>
   </defs>
   <path fill="url(#wash)" d="M0 0h1600v900H0z"/>
-  <g filter="url(#blur)" opacity=".62">
+  <g filter="url(#blur)" opacity=".37">
     <path stroke="url(#ribbon)" stroke-linecap="round" stroke-width="150" d="M219 625c152-354 310-376 467-115 127 211 263 293 412 117 74-88 131-204 219-313"/>
   </g>
   <path stroke="url(#ribbon)" stroke-linecap="round" stroke-width="2" opacity=".8" d="M219 625c152-354 310-376 467-115 127 211 263 293 412 117 74-88 131-204 219-313"/>
