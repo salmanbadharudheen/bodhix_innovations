@@ -27,6 +27,8 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('work/', views.work, name='work'),
     path('approach/', views.approach, name='approach'),
+    path('contact/', views.contact, name='contact'),
+    path('contact/thanks/', views.contact_thanks, name='contact_thanks'),
 ]
 
 if settings.DEBUG:

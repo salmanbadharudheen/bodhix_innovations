@@ -26,3 +26,11 @@ def work(request):
 
 def approach(request):
     return render(request, 'website/approach.html')
+
+
+def contact(request):
+    return render(request, 'website/contact.html')
+
+
+def contact_thanks(request):
+    return render(request, 'website/contact_thanks.html')

@@ -379,6 +379,40 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .contact__flare { position: absolute; width: 370px; height: 370px; border-radius: 50%; pointer-events: none; }
 .contact__flare--one { top: -50%; right: -5%; background: radial-gradient(circle, rgba(179,75,205,.27), transparent 68%); }
 .contact__flare--two { right: 11%; bottom: -82%; background: radial-gradient(circle, rgba(242,117,85,.2), transparent 70%); }
+.contact-page__section { position: relative; display: grid; min-height: min(900px, 100vh); min-height: min(900px, 100svh); grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: center; gap: clamp(3rem, 8vw, 8rem); overflow: hidden; padding: 9rem 10.3% 6rem; background: #f0eee8; isolation: isolate; }
+.contact-page__section::before { position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 9% 92%, rgba(243,86,117,.13), transparent 34%), radial-gradient(ellipse at 91% 75%, rgba(84,185,237,.15), transparent 35%), linear-gradient(135deg, rgba(255,255,255,.82), transparent 58%); content: ""; }
+.contact-page__nav { position: absolute; top: 2rem; right: 10.3%; left: 10.3%; display: flex; align-items: center; justify-content: space-between; }
+.contact-page__nav-brand { display: inline-flex; padding: .38rem .55rem; border: 1px solid rgba(8,8,8,.08); border-radius: 6px; background: rgba(255,255,255,.94); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+.contact-page__nav-brand img { display: block; width: clamp(86px, 7vw, 106px); height: auto; }
+.contact-page__nav-home { color: #555; font-size: .64rem; font-weight: 600; }
+.contact-page__intro { position: relative; z-index: 1; }
+.contact-page__intro h1, .contact-thanks h1 { margin: 0; font-family: var(--display); font-size: clamp(2.35rem, 3.65vw, 3.6rem); font-weight: 400; letter-spacing: -.085em; line-height: 1.2; }
+.contact-page__intro h1 span, .contact-thanks h1 span { background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.contact-page__lead { max-width: 390px; margin: 1.35rem 0 1.6rem; color: #626262; font-size: .83rem; }
+.contact-page__whatsapp { display: inline-flex; min-height: 46px; align-items: center; gap: 1rem; padding: .75rem 1rem; border-radius: 3rem; background: #128c7e; color: #fff; font-size: .68rem; font-weight: 700; transition: background .2s ease, transform .2s ease; }
+.contact-page__whatsapp:hover { transform: translateY(-2px); background: #0e766b; }
+.contact-page__email { display: block; width: fit-content; margin-top: 1.1rem; color: #555; font-size: .68rem; font-weight: 600; }
+.enquiry-form { position: relative; z-index: 1; padding: clamp(1.35rem, 3vw, 2.4rem); border: 1px solid rgba(8,8,8,.08); border-radius: 6px; background: rgba(255,255,255,.94); box-shadow: 0 24px 70px rgba(8,8,8,.09); }
+.enquiry-form__trap { display: none; }
+.enquiry-form__intro { margin: 0 0 1.4rem; font-size: .9rem; font-weight: 700; }
+.enquiry-form__intro span { display: block; margin-top: .2rem; color: #777; font-size: .63rem; font-weight: 400; }
+.enquiry-form__fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.enquiry-form__field { display: flex; min-width: 0; flex-direction: column; gap: .38rem; color: #343434; font-size: .65rem; font-weight: 600; }
+.enquiry-form__field small { margin-left: .3rem; color: #888; font-size: .58rem; font-weight: 400; }
+.enquiry-form__field--full { grid-column: 1 / -1; }
+.enquiry-form__field input, .enquiry-form__field select, .enquiry-form__field textarea { width: 100%; min-height: 43px; padding: .7rem .75rem; border: 1px solid #d9d9d5; border-radius: 3px; outline: 0; background: #fff; color: var(--ink); font: 400 .72rem var(--body); }
+.enquiry-form__field textarea { min-height: 110px; resize: vertical; }
+.enquiry-form__field input:focus, .enquiry-form__field select:focus, .enquiry-form__field textarea:focus { border-color: #9c45d1; box-shadow: 0 0 0 3px rgba(156,69,209,.12); }
+.enquiry-form__privacy { margin: 1rem 0; color: #777; font-size: .58rem; }
+.enquiry-form__submit { border: 0; background: var(--ink); color: var(--white); cursor: pointer; }
+.enquiry-form__submit:hover { background: #333; }
+.contact-thanks { display: flex; min-height: min(720px, 85vh); flex-direction: column; align-items: flex-start; justify-content: center; padding: 9rem 10.3% 6rem; background: radial-gradient(ellipse at 86% 60%, rgba(163,76,224,.13), transparent 35%), #101014; color: var(--white); }
+.contact-thanks .eyebrow { color: #b6b6b6; }
+.contact-thanks > p:not(.eyebrow) { margin: 1.2rem 0 1.6rem; color: #c1c1c1; font-size: .82rem; }
+.whatsapp-float { position: fixed; z-index: 9; right: 1.25rem; bottom: max(1.25rem, env(safe-area-inset-bottom)); display: inline-flex; min-height: 50px; align-items: center; gap: .6rem; padding: .7rem 1rem; border: 1px solid rgba(255,255,255,.24); border-radius: 3rem; background: #128c7e; box-shadow: 0 8px 25px rgba(0,0,0,.2); color: #fff; font-size: .67rem; font-weight: 700; transition: transform .2s ease, background .2s ease; }
+.whatsapp-float:hover { transform: translateY(-3px); background: #0e766b; }
+.whatsapp-float svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
+.contact-page--form .whatsapp-float { display: none; }
 .site-footer { display: flex; min-height: 115px; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 7.1%; }
 .brand-logo--footer { width: 100px; }
 .site-footer > p, .site-footer > span, .site-footer > a:last-child { color: #737373; font-size: .64rem; }
@@ -437,6 +471,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .approach-page-hero { padding-right: 7%; padding-left: 7%; }
   .approach-page-hero__content { max-width: 540px; }
   .approach-steps__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-page__section { gap: 2rem; padding-right: 7%; padding-left: 7%; }
+  .contact-page__nav { right: 7%; left: 7%; }
+  .enquiry-form { padding: 1.4rem; }
   .service-page-contact { padding-right: 7%; padding-left: 7%; }
   .belief__main, .belief__points { margin-left: 8%; }
   .belief__orb--one { right: 3%; }
@@ -556,6 +593,15 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .approach-steps__list { grid-template-columns: 1fr; gap: .7rem; }
   .approach-steps__list li { min-height: auto; gap: .8rem; padding: 1.1rem; }
   .approach-steps__focus { margin-top: 0; padding-top: .75rem; }
+  .contact-page__section { min-height: auto; grid-template-columns: 1fr; gap: 2rem; padding: 7.5rem 7% 3rem; }
+  .contact-page__nav { top: 1rem; }
+  .contact-page__intro h1, .contact-thanks h1 { font-size: clamp(2.35rem, 10vw, 3.7rem); }
+  .contact-page__lead { max-width: 420px; margin: .9rem 0 1.1rem; font-size: .76rem; }
+  .contact-page__email { margin-top: .8rem; }
+  .enquiry-form { padding: 1.2rem; }
+  .enquiry-form__fields { gap: .8rem; }
+  .contact-thanks { min-height: 75vh; padding: 8rem 7% 4rem; }
+  .whatsapp-float { right: .8rem; bottom: max(.8rem, env(safe-area-inset-bottom)); min-height: 46px; padding: .6rem .8rem; font-size: .62rem; }
   .process__more { justify-content: flex-start; margin-top: 1.2rem; }
   .service-detail { min-height: auto; padding: 4.5rem 7%; }
   .service-detail__inner,
@@ -594,6 +640,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .site-footer { flex-wrap: wrap; min-height: 140px; padding: 1.4rem 7%; }
   .site-footer > p { display: none; }
   .site-footer > span { margin-left: auto; }
+}
+
+@media (max-width: 380px) {
+  .enquiry-form__fields { grid-template-columns: 1fr; }
+  .enquiry-form__field--full { grid-column: 1; }
 }
 
 @media (max-width: 640px) and (max-height: 600px) {

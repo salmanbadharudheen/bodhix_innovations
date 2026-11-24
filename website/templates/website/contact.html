@@ -1,0 +1,106 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tell BODHIX Innovations about your project. Send an enquiry or connect with us on WhatsApp.">
+  <meta name="theme-color" content="#f7f7f5">
+  <title>Contact — BODHIX Innovations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=37">
+  <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
+</head>
+<body class="contact-page contact-page--form">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-logo-link" href="{% url 'home' %}#top">
+      <img class="brand-logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__icon" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'work' %}">Work</a>
+      <a href="{% url 'approach' %}">Our approach</a>
+      <a class="nav-cta" href="#contact-form" aria-current="page">Start a project <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="contact-page__section" id="top" aria-labelledby="contact-page-title">
+      <nav class="contact-page__nav" aria-label="Contact page navigation">
+        <a class="contact-page__nav-brand" href="{% url 'home' %}#top">
+          <img src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+        </a>
+        <a class="contact-page__nav-home" href="{% url 'home' %}">Back to the site <span aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="contact-page__intro">
+        <p class="eyebrow">Let’s make something meaningful</p>
+        <h1 id="contact-page-title">Let’s talk<br>about your <span>next idea.</span></h1>
+        <p class="contact-page__lead">Share a little about your idea. We’ll get back to you and work out the right next step together.</p>
+        <a class="contact-page__whatsapp" href="https://wa.me/971541830378?text=Hello%20BODHIX%20Innovations%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">
+          Chat with us on WhatsApp <span aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-page__email" href="mailto:info@bodhixinnovations.com">info@bodhixinnovations.com</a>
+      </div>
+
+      <form class="enquiry-form" id="contact-form" name="project-enquiry" method="POST" action="/contact/thanks/" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="project-enquiry">
+        <p class="enquiry-form__trap" aria-hidden="true">
+          <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+        <p class="enquiry-form__intro">Project enquiry <span>Share the details and we’ll be in touch.</span></p>
+        <div class="enquiry-form__fields">
+          <label class="enquiry-form__field">
+            <span>Your name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="enquiry-form__field">
+            <span>Email address</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label class="enquiry-form__field">
+            <span>Phone number <small>Optional</small></span>
+            <input type="tel" name="phone" autocomplete="tel">
+          </label>
+          <label class="enquiry-form__field">
+            <span>What do you need?</span>
+            <select name="service">
+              <option value="">Choose a service</option>
+              <option>Brand identity</option>
+              <option>Graphic design</option>
+              <option>Web design and development</option>
+              <option>Software development</option>
+              <option>Content creation</option>
+              <option>Social media</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label class="enquiry-form__field enquiry-form__field--full">
+            <span>Tell us about your project</span>
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+        </div>
+        <p class="enquiry-form__privacy">We’ll only use your details to respond to this enquiry.</p>
+        <button class="button enquiry-form__submit" type="submit">Send your enquiry <span aria-hidden="true">↗</span></button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
+      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <p>We turn ideas into experiences.</p>
+    <span>© {% now "Y" %} BODHIX Innovations</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+  {% include 'website/includes/whatsapp_link.html' %}
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Thank you for contacting BODHIX Innovations.">
+  <meta name="theme-color" content="#f7f7f5">
+  <title>Thank you — BODHIX Innovations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=37">
+  <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
+</head>
+<body class="contact-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand-logo-link" href="{% url 'home' %}#top">
+      <img class="brand-logo" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__icon" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'work' %}">Work</a>
+      <a href="{% url 'approach' %}">Our approach</a>
+      <a class="nav-cta" href="{% url 'contact' %}">Start a project <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="contact-thanks" aria-labelledby="contact-thanks-title">
+      <nav class="contact-page__nav" aria-label="Contact page navigation">
+        <a class="contact-page__nav-brand" href="{% url 'home' %}#top">
+          <img src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+        </a>
+        <a class="contact-page__nav-home" href="{% url 'home' %}">Back to the site <span aria-hidden="true">↗</span></a>
+      </nav>
+      <p class="eyebrow">Enquiry received</p>
+      <h1 id="contact-thanks-title">Thanks for<br>getting <span>in touch.</span></h1>
+      <p>Your message is on its way. We’ll be in touch soon.</p>
+      <a class="button button--light" href="{% url 'home' %}">Back to home <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
+      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+    </a>
+    <p>We turn ideas into experiences.</p>
+    <span>© {% now "Y" %} BODHIX Innovations</span>
+    <a href="{% url 'home' %}#top">Back to top ↑</a>
+  </footer>
+  {% include 'website/includes/whatsapp_link.html' %}
+</body>
+</html>

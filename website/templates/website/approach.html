@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=34">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=37">
   <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
 </head>
 <body>
@@ -28,7 +28,7 @@
       <a href="{% url 'services' %}">Services</a>
       <a href="{% url 'work' %}">Work</a>
       <a href="{% url 'approach' %}" aria-current="page">Our approach</a>
-      <a class="nav-cta" href="#approach-contact">Start a project <span aria-hidden="true">↗</span></a>
+      <a class="nav-cta" href="{% url 'contact' %}">Start a project <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
@@ -104,7 +104,7 @@
         <p class="eyebrow eyebrow--light">Your idea starts here</p>
         <h2 id="approach-contact-title">Ready to make<br>something <span>matter?</span></h2>
         <p class="contact__text">Tell us what you’re imagining and we’ll find the right way to bring it to life.</p>
-        <a class="button button--light" href="https://bodhixinnovations.com" target="_blank" rel="noopener noreferrer">Start a conversation <span aria-hidden="true">↗</span></a>
+        <a class="button button--light" href="{% url 'contact' %}">Start a conversation <span aria-hidden="true">↗</span></a>
       </div>
       <span class="contact__flare contact__flare--one" aria-hidden="true"></span>
       <span class="contact__flare contact__flare--two" aria-hidden="true"></span>
@@ -119,5 +119,6 @@
     <span>© {% now "Y" %} BODHIX Innovations</span>
     <a href="#top">Back to top ↑</a>
   </footer>
+  {% include 'website/includes/whatsapp_link.html' %}
 </body>
 </html>

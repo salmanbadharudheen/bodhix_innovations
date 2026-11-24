@@ -38,7 +38,7 @@ def write_page(path: str, content: bytes) -> None:
 
 DIST_DIR.mkdir(parents=True, exist_ok=True)
 
-for relative_path in ('index.html', 'about', 'services', 'work', 'approach'):
+for relative_path in ('index.html', 'about', 'services', 'work', 'approach', 'contact'):
     existing_path = DIST_DIR / relative_path
     if existing_path.is_file():
         existing_path.unlink()
@@ -51,6 +51,8 @@ work_dir = DIST_DIR / 'work'
 remove_tree(work_dir)
 approach_dir = DIST_DIR / 'approach'
 remove_tree(approach_dir)
+contact_dir = DIST_DIR / 'contact'
+remove_tree(contact_dir)
 
 client = Client(HTTP_HOST='localhost')
 pages = (
@@ -59,6 +61,8 @@ pages = (
     ('/services/', 'services/index.html'),
     ('/work/', 'work/index.html'),
     ('/approach/', 'approach/index.html'),
+    ('/contact/', 'contact/index.html'),
+    ('/contact/thanks/', 'contact/thanks/index.html'),
 )
 
 for url, output_path in pages:

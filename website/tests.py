@@ -61,7 +61,7 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'Clever technology. Bold imagination.')
 
     def test_about_navigation_links_to_the_dedicated_page(self):
-        for page_name in ('home', 'about', 'services', 'work', 'approach'):
+        for page_name in ('home', 'about', 'services', 'work', 'approach', 'contact', 'contact_thanks'):
             with self.subTest(page=page_name):
                 response = self.client.get(reverse(page_name))
                 self.assertContains(response, f'href="{reverse("about")}"')
@@ -77,10 +77,43 @@ class HomePageTests(TestCase):
                 self.assertContains(response, f'>{step}<')
 
     def test_approach_navigation_links_to_the_dedicated_page(self):
-        for page_name in ('home', 'about', 'services', 'work'):
+        for page_name in ('home', 'about', 'services', 'work', 'contact', 'contact_thanks'):
             with self.subTest(page=page_name):
                 response = self.client.get(reverse(page_name))
                 self.assertContains(response, f'href="{reverse("approach")}"')
+
+    def test_contact_page_has_netlify_enquiry_form_and_whatsapp_link(self):
+        response = self.client.get(reverse('contact'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'name="project-enquiry"')
+        self.assertContains(response, 'data-netlify="true"')
+        self.assertContains(response, 'netlify-honeypot="bot-field"')
+        self.assertContains(response, 'action="/contact/thanks/"')
+        self.assertContains(response, 'name="email"')
+        self.assertContains(response, 'name="message"')
+        self.assertContains(response, 'https://wa.me/971541830378')
+
+    def test_contact_thank_you_page_is_available(self):
+        response = self.client.get(reverse('contact_thanks'))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'id="contact-thanks-title"')
+
+    def test_project_navigation_links_to_contact_page(self):
+        for page_name in ('home', 'about', 'services', 'work', 'approach'):
+            with self.subTest(page=page_name):
+                response = self.client.get(reverse(page_name))
+                self.assertContains(
+                    response,
+                    f'class="nav-cta" href="{reverse("contact")}"',
+                )
+
+    def test_site_pages_link_to_whatsapp(self):
+        for page_name in ('home', 'about', 'services', 'work', 'approach', 'contact'):
+            with self.subTest(page=page_name):
+                response = self.client.get(reverse(page_name))
+                self.assertContains(response, 'https://wa.me/971541830378')
 
     def test_work_is_available_as_a_dedicated_page(self):
         response = self.client.get(reverse('work'))
