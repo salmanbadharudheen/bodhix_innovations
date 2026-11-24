@@ -4,13 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Meet BODHIX Innovations: creative thinkers and makers bringing design and technology together to turn ideas into experiences.">
+  <meta name="description" content="Learn about BODHIX Innovations, a creative technology studio bringing thoughtful design and technology together.">
   <meta name="theme-color" content="#f7f7f5">
+  <link rel="canonical" href="{{ site_base_url }}{% url 'about' %}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About — BODHIX Innovations">
+  <meta property="og:description" content="Creative thinkers and makers turning ideas into meaningful experiences.">
+  <meta property="og:url" content="{{ site_base_url }}{% url 'about' %}">
   <title>About — BODHIX Innovations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=37">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=38">
   <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
 </head>
 <body class="about-page">
@@ -73,8 +78,17 @@
       </div>
     </section>
 
+    <section class="about-vision section-wrap" aria-labelledby="about-vision-title">
+      <div class="section-label"><span>02</span> Where we’re going</div>
+      <div class="about-vision__content">
+        <p class="eyebrow">Our vision</p>
+        <h2 id="about-vision-title">Technology and creativity, working as one.</h2>
+        <p>We envision a world where technology and creativity come together to create meaningful digital experiences that inspire, connect and make a lasting impact.</p>
+      </div>
+    </section>
+
     <section class="belief section-wrap" aria-labelledby="belief-title">
-      <div class="section-label"><span>02</span> The BODHIX difference</div>
+      <div class="section-label"><span>03</span> The BODHIX difference</div>
       <div class="belief__main">
         <p class="eyebrow eyebrow--light">Clever technology. Bold imagination.</p>
         <h2 id="belief-title">Good ideas deserve<br>to go <span>further.</span></h2>
@@ -100,14 +114,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
-      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
-    </a>
-    <p>We turn ideas into experiences.</p>
-    <span>© {% now "Y" %} BODHIX Innovations</span>
-    <a href="#top">Back to top ↑</a>
-  </footer>
+  {% include 'website/includes/site_footer.html' %}
   {% include 'website/includes/whatsapp_link.html' %}
 </body>
 </html>

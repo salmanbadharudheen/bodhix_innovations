@@ -4,13 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BODHIX Innovations brings creativity and technology together to turn ideas into useful digital experiences.">
+  <meta name="description" content="BODHIX Innovations brings creativity and technology together through software, AI and automation, data, and digital commerce.">
   <meta name="theme-color" content="#f7f7f5">
+  <link rel="canonical" href="{{ site_base_url }}{% url 'home' %}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BODHIX Innovations — Think beyond digital">
+  <meta property="og:description" content="We turn ideas into experiences through thoughtful design and technology.">
+  <meta property="og:url" content="{{ site_base_url }}{% url 'home' %}">
   <title>BODHIX Innovations — Think beyond digital</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=37">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=38">
   <script src="{% static 'website/js/site.js' %}?v=18" defer></script>
   <script src="{% static 'website/js/intro-universe.js' %}?v=14" defer></script>
 </head>
@@ -56,55 +61,69 @@
               </div>
             </div>
           </article>
-          <article class="hero__slide hero__slide--software" role="group" aria-roledescription="slide" aria-label="2 of 5: Software development" aria-hidden="true" inert>
+          <article class="hero__slide hero__slide--software" role="group" aria-roledescription="slide" aria-label="2 of 5: Software solutions" aria-hidden="true" inert>
             <img src="{{ media_url }}software%20development.jpeg" alt="Software developer working with a laptop and connected devices" loading="lazy">
             <div class="hero__scrim" aria-hidden="true"></div>
             <div class="hero__copy">
               <p class="eyebrow eyebrow--light">Engineering <span>01 / 04</span></p>
-              <h2 class="hero__title">Software<br><span>development.</span></h2>
-              <p class="hero__description">Custom web applications, mobile apps and business systems built around the way you work.</p>
+              <h2 class="hero__title">Software<br><span>solutions.</span></h2>
+              <p class="hero__description">Thoughtful digital products and business systems, shaped around how your organisation works.</p>
               <div class="hero__actions">
                 <a class="button button--light" href="#contact">Discuss this service <span aria-hidden="true">↗</span></a>
-                <a class="text-link text-link--light" href="#service-software-development">View details <span aria-hidden="true">↓</span></a>
+                <a class="text-link text-link--light" href="#service-software-solutions">View details <span aria-hidden="true">↓</span></a>
               </div>
             </div>
           </article>
-          <article class="hero__slide hero__slide--web" role="group" aria-roledescription="slide" aria-label="3 of 5: Web design and development" aria-hidden="true" inert>
-            <img src="{% static 'website/images/service-web.jpg' %}?v=2" alt="Analytics dashboard displayed on a laptop" loading="lazy">
+          <article class="hero__slide hero__slide--ai" role="group" aria-roledescription="slide" aria-label="3 of 5: AI and automation" aria-hidden="true" inert>
             <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="hero__diagram hero__diagram--ai" aria-hidden="true">
+              <span class="hero__diagram-label">IDEA / AUTOMATION</span>
+              <span class="hero__diagram-node hero__diagram-node--one">INPUT</span>
+              <span class="hero__diagram-node hero__diagram-node--two">ASSIST</span>
+              <span class="hero__diagram-node hero__diagram-node--three">ACTION</span>
+              <span class="hero__diagram-line hero__diagram-line--one"></span>
+              <span class="hero__diagram-line hero__diagram-line--two"></span>
+            </div>
             <div class="hero__copy">
-              <p class="eyebrow eyebrow--light">Digital experience <span>02 / 04</span></p>
-              <h2 class="hero__title">Web design &amp;<br><span>development.</span></h2>
-              <p class="hero__description">Modern, responsive websites with thoughtful design, reliable development and room to grow.</p>
+              <p class="eyebrow eyebrow--light">Practical innovation <span>02 / 04</span></p>
+              <h2 class="hero__title">AI &amp;<br><span>automation.</span></h2>
+              <p class="hero__description">Explore useful ways to streamline repetitive work and make everyday tools work better together.</p>
               <div class="hero__actions">
                 <a class="button button--light" href="#contact">Discuss this service <span aria-hidden="true">↗</span></a>
-                <a class="text-link text-link--light" href="#service-web-design">View details <span aria-hidden="true">↓</span></a>
+                <a class="text-link text-link--light" href="#service-ai-automation">View details <span aria-hidden="true">↓</span></a>
               </div>
             </div>
           </article>
-          <article class="hero__slide hero__slide--brand" role="group" aria-roledescription="slide" aria-label="4 of 5: Brand identity" aria-hidden="true" inert>
-            <img src="{% static 'website/images/service-brand.jpg' %}?v=2" alt="Designer working on a visual identity with a digital tablet" loading="lazy">
+          <article class="hero__slide hero__slide--data" role="group" aria-roledescription="slide" aria-label="4 of 5: Data and intelligence" aria-hidden="true" inert>
             <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="hero__diagram hero__diagram--data" aria-hidden="true">
+              <span class="hero__diagram-label">SIGNAL / INSIGHT</span>
+              <span class="hero__chart-bar hero__chart-bar--one"></span>
+              <span class="hero__chart-bar hero__chart-bar--two"></span>
+              <span class="hero__chart-bar hero__chart-bar--three"></span>
+              <span class="hero__chart-bar hero__chart-bar--four"></span>
+              <span class="hero__chart-line"></span>
+            </div>
             <div class="hero__copy">
-              <p class="eyebrow eyebrow--light">Identity design <span>03 / 04</span></p>
-              <h2 class="hero__title">Brand<br><span>identity.</span></h2>
-              <p class="hero__description">A distinctive visual identity and voice that helps your brand stay memorable.</p>
+              <p class="eyebrow eyebrow--light">Data &amp; insight <span>03 / 04</span></p>
+              <h2 class="hero__title">Data &amp;<br><span>intelligence.</span></h2>
+              <p class="hero__description">Bring information into focus with practical data foundations, reporting and dashboards.</p>
               <div class="hero__actions">
                 <a class="button button--light" href="#contact">Discuss this service <span aria-hidden="true">↗</span></a>
-                <a class="text-link text-link--light" href="#service-brand-identity">View details <span aria-hidden="true">↓</span></a>
+                <a class="text-link text-link--light" href="#service-data-intelligence">View details <span aria-hidden="true">↓</span></a>
               </div>
             </div>
           </article>
-          <article class="hero__slide hero__slide--graphic" role="group" aria-roledescription="slide" aria-label="5 of 5: Graphic design" aria-hidden="true" inert>
-            <img src="{% static 'website/images/service-graphic.jpg' %}?v=2" alt="Colorful paintbrushes in a creative studio" loading="lazy">
+          <article class="hero__slide hero__slide--web hero__slide--commerce" role="group" aria-roledescription="slide" aria-label="5 of 5: Digital commerce" aria-hidden="true" inert>
+            <img src="{% static 'website/images/service-web.jpg' %}?v=2" alt="Digital commerce analytics displayed on a laptop" loading="lazy">
             <div class="hero__scrim" aria-hidden="true"></div>
             <div class="hero__copy">
-              <p class="eyebrow eyebrow--light">Visual storytelling <span>04 / 04</span></p>
-              <h2 class="hero__title">Graphic<br><span>design.</span></h2>
-              <p class="hero__description">Creative visuals for social media, campaigns, packaging and more.</p>
+              <p class="eyebrow eyebrow--light">Digital commerce <span>04 / 04</span></p>
+              <h2 class="hero__title">Commerce<br><span>that connects.</span></h2>
+              <p class="hero__description">Build a clearer online journey for customers, from discovering your offer to completing a purchase.</p>
               <div class="hero__actions">
                 <a class="button button--light" href="#contact">Discuss this service <span aria-hidden="true">↗</span></a>
-                <a class="text-link text-link--light" href="#service-graphic-design">View details <span aria-hidden="true">↓</span></a>
+                <a class="text-link text-link--light" href="#service-digital-commerce">View details <span aria-hidden="true">↓</span></a>
               </div>
             </div>
           </article>
@@ -162,92 +181,63 @@
           <div class="section-label"><span>02</span> What we do</div>
           <h2 id="services-title">Built for what’s next.</h2>
         </div>
-        <p>Everything your brand needs to grow, under one roof. From the first idea to the final click, we design, build and grow brands that people remember.</p>
+        <p>Four connected capabilities bring strategy, thoughtful design and technology together. We shape each project around your goals and what is practical to deliver.</p>
       </div>
       <div class="service-grid">
-        <article class="service-card service-card--brand" id="service-brand-identity">
+        <article class="service-card" id="service-software-solutions">
           <span class="service-card__number">01</span>
           <figure class="service-card__media">
-            <img src="{% static 'website/images/service-brand.jpg' %}" alt="Brand designer developing a visual identity on a tablet" loading="lazy">
-            <span>Identity / 01</span>
+            <img src="{% static 'website/images/service-software.jpg' %}" alt="Software interface and development workspace" loading="lazy">
+            <span>Software / 01</span>
           </figure>
-          <h3>Brand identity</h3>
-          <p>Build a memorable brand with a strong look and voice.</p>
-          <ul class="service-card__list">
-            <li>Logo design and variations</li>
-            <li>Colour, typography and patterns</li>
-            <li>Brand voice and positioning</li>
-            <li>Guidelines and social kits</li>
-          </ul>
-          <a href="#contact" aria-label="Discuss brand identity">Discuss this service <span aria-hidden="true">↗</span></a>
-        </article>
-        <article class="service-card service-card--graphic" id="service-graphic-design">
-          <span class="service-card__number">02</span>
-          <figure class="service-card__media">
-            <img src="{% static 'website/images/service-graphic.jpg' %}" alt="Paintbrushes creating a vibrant graphic design palette" loading="lazy">
-            <span>Visuals / 02</span>
-          </figure>
-          <h3>Graphic design</h3>
-          <p>Create creative visuals that capture attention and communicate clearly.</p>
-          <ul class="service-card__list">
-            <li>Social media creatives</li>
-            <li>Print, signage and presentations</li>
-            <li>Advertising and promotions</li>
-            <li>Packaging and label design</li>
-          </ul>
-          <a href="#contact" aria-label="Discuss graphic design">Discuss this service <span aria-hidden="true">↗</span></a>
-        </article>
-        <article class="service-card" id="service-web-design">
-          <span class="service-card__number">03</span>
-          <div class="service-card__symbol service-card__symbol--orange" aria-hidden="true">⌁</div>
-          <h3>Web design &amp; development</h3>
-          <p>Modern, user-friendly websites built to perform and grow.</p>
-          <ul class="service-card__list">
-            <li>Desktop and mobile websites</li>
-            <li>E-commerce and booking systems</li>
-            <li>CMS, SEO and speed setup</li>
-            <li>Security, launch and support</li>
-          </ul>
-          <a href="#contact" aria-label="Discuss web design and development">Discuss this service <span aria-hidden="true">↗</span></a>
-        </article>
-        <article class="service-card" id="service-software-development">
-          <span class="service-card__number">04</span>
-          <div class="service-card__symbol service-card__symbol--blue" aria-hidden="true">◈</div>
-          <h3>Software development</h3>
-          <p>Custom software and apps built around your business needs.</p>
+          <h3>Software solutions</h3>
+          <p>Digital products and business systems shaped around the way you work.</p>
           <ul class="service-card__list">
             <li>Web and mobile applications</li>
-            <li>CRM, ERP and dashboards</li>
-            <li>Booking and inventory systems</li>
-            <li>API integrations and automation</li>
+            <li>Custom business software</li>
+            <li>Systems and API integrations</li>
+            <li>Testing and ongoing support</li>
           </ul>
-          <a href="#contact" aria-label="Discuss software development">Discuss this service <span aria-hidden="true">↗</span></a>
+          <a href="#contact" aria-label="Discuss software solutions">Discuss this service <span aria-hidden="true">↗</span></a>
         </article>
-        <article class="service-card">
-          <span class="service-card__number">05</span>
-          <div class="service-card__symbol" aria-hidden="true">▶</div>
-          <h3>Content creation</h3>
-          <p>Photos, videos and words that tell your story with purpose.</p>
+        <article class="service-card" id="service-ai-automation">
+          <span class="service-card__number">02</span>
+          <div class="service-card__symbol service-card__symbol--violet" aria-hidden="true">✳</div>
+          <h3>AI &amp; automation</h3>
+          <p>Explore practical ways to simplify repetitive tasks and connect everyday workflows.</p>
           <ul class="service-card__list">
-            <li>Photography and videography</li>
-            <li>Reels and short-form video</li>
-            <li>Editing and motion graphics</li>
-            <li>Copywriting and storytelling</li>
+            <li>Workflow discovery and mapping</li>
+            <li>AI-assisted tools and experiences</li>
+            <li>Task automation and integrations</li>
+            <li>Human-centred implementation</li>
           </ul>
-          <a href="#contact" aria-label="Discuss content creation">Discuss this service <span aria-hidden="true">↗</span></a>
+          <a href="#contact" aria-label="Discuss AI and automation">Discuss this service <span aria-hidden="true">↗</span></a>
         </article>
-        <article class="service-card">
-          <span class="service-card__number">06</span>
-          <div class="service-card__symbol service-card__symbol--violet" aria-hidden="true">◎</div>
-          <h3>Social media management</h3>
-          <p>Build a consistent, engaging presence that connects with your audience.</p>
+        <article class="service-card" id="service-data-intelligence">
+          <span class="service-card__number">03</span>
+          <div class="service-card__symbol service-card__symbol--blue" aria-hidden="true">▥</div>
+          <h3>Data &amp; intelligence</h3>
+          <p>Make information easier to understand, use and bring into everyday decisions.</p>
           <ul class="service-card__list">
-            <li>Strategy and content calendars</li>
-            <li>Content, captions and scheduling</li>
-            <li>Community engagement</li>
-            <li>Paid campaigns and reporting</li>
+            <li>Data foundations and organisation</li>
+            <li>Reporting and visual dashboards</li>
+            <li>Analytics and useful insights</li>
+            <li>Decision-support tools</li>
           </ul>
-          <a href="#contact" aria-label="Discuss social media management">Discuss this service <span aria-hidden="true">↗</span></a>
+          <a href="#contact" aria-label="Discuss data and intelligence">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card" id="service-digital-commerce">
+          <span class="service-card__number">04</span>
+          <div class="service-card__symbol service-card__symbol--orange" aria-hidden="true">↗</div>
+          <h3>Digital commerce</h3>
+          <p>Thoughtful online shopping and service experiences for your customers.</p>
+          <ul class="service-card__list">
+            <li>E-commerce websites and storefronts</li>
+            <li>Booking and payment journeys</li>
+            <li>Product and content management</li>
+            <li>Customer experience improvements</li>
+          </ul>
+          <a href="#contact" aria-label="Discuss digital commerce">Discuss this service <span aria-hidden="true">↗</span></a>
         </article>
       </div>
     </section>
@@ -280,7 +270,7 @@
         <li><span>02</span><h3>Define</h3><p>Set a clear direction, scope and shared priorities.</p></li>
         <li><span>03</span><h3>Design</h3><p>Shape the experience and bring the solution to life.</p></li>
         <li><span>04</span><h3>Build</h3><p>Develop, test and refine with care and purpose.</p></li>
-        <li><span>05</span><h3>Improve</h3><p>Launch, learn and make space for what comes next.</p></li>
+        <li><span>05</span><h3>Launch &amp; improve</h3><p>Launch, learn and improve the experience based on how it is used.</p></li>
       </ol>
       <div class="process__more">
         <a class="text-link" href="{% url 'approach' %}">Explore our approach <span aria-hidden="true">↗</span></a>
@@ -299,14 +289,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="brand-logo-link brand-logo-link--footer" href="#top">
-      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
-    </a>
-    <p>We turn ideas into experiences.</p>
-    <span>© {% now "Y" %} BODHIX Innovations</span>
-    <a href="#top">Back to top ↑</a>
-  </footer>
+  {% include 'website/includes/site_footer.html' %}
   {% include 'website/includes/whatsapp_link.html' %}
 </body>
 </html>

@@ -6,11 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore selected work from BODHIX Innovations. Real projects, shared with permission.">
   <meta name="theme-color" content="#f7f7f5">
+  <link rel="canonical" href="{{ site_base_url }}{% url 'work' %}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Work — BODHIX Innovations">
+  <meta property="og:description" content="Selected BODHIX Innovations projects, shared with permission and the details that matter.">
+  <meta property="og:url" content="{{ site_base_url }}{% url 'work' %}">
   <title>Work — BODHIX Innovations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=37">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=38">
   <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
 </head>
 <body>
@@ -88,14 +93,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
-      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
-    </a>
-    <p>We turn ideas into experiences.</p>
-    <span>© {% now "Y" %} BODHIX Innovations</span>
-    <a href="#top">Back to top ↑</a>
-  </footer>
+  {% include 'website/includes/site_footer.html' %}
   {% include 'website/includes/whatsapp_link.html' %}
 </body>
 </html>

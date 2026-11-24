@@ -1,5 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
+from xml.etree import ElementTree
+
+from .seo import SITEMAP_NAMESPACE, SITEMAP_PATHS, build_robots_txt, build_sitemap
 
 
 class HomePageTests(TestCase):
@@ -17,18 +20,17 @@ class HomePageTests(TestCase):
         self.assertNotContains(response, 'showreel')
         self.assertNotContains(response, 'video-note')
         self.assertContains(response, '1 of 5: Ideas into experiences')
-        self.assertContains(response, '2 of 5: Software development')
-        self.assertContains(response, '3 of 5: Web design and development')
-        self.assertContains(response, '4 of 5: Brand identity')
-        self.assertContains(response, '5 of 5: Graphic design')
+        self.assertContains(response, '2 of 5: Software solutions')
+        self.assertContains(response, '3 of 5: AI and automation')
+        self.assertContains(response, '4 of 5: Data and intelligence')
+        self.assertContains(response, '5 of 5: Digital commerce')
         self.assertContains(response, 'hero__slide--software')
-        self.assertContains(response, 'hero__slide--web')
-        self.assertContains(response, 'hero__slide--brand')
-        self.assertContains(response, 'hero__slide--graphic')
+        self.assertContains(response, 'hero__slide--ai')
+        self.assertContains(response, 'hero__slide--data')
+        self.assertContains(response, 'hero__slide--commerce')
         self.assertContains(response, 'software%20development.jpeg')
-        self.assertContains(response, 'website/images/service-web.jpg')
-        self.assertContains(response, 'website/images/service-brand.jpg')
-        self.assertContains(response, 'website/images/service-graphic.jpg')
+        self.assertContains(response, 'hero__diagram--ai')
+        self.assertContains(response, 'hero__diagram--data')
         self.assertContains(response, 'id="services"')
         self.assertContains(response, 'id="about"')
         self.assertContains(response, 'id="process"')
@@ -38,10 +40,10 @@ class HomePageTests(TestCase):
         response = self.client.get(reverse('home'))
 
         for service_id in (
-            'service-software-development',
-            'service-web-design',
-            'service-brand-identity',
-            'service-graphic-design',
+            'service-software-solutions',
+            'service-ai-automation',
+            'service-data-intelligence',
+            'service-digital-commerce',
         ):
             with self.subTest(service_id=service_id):
                 self.assertContains(response, f'href="#{service_id}"')
@@ -58,6 +60,8 @@ class HomePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'id="about-page-title"')
         self.assertContains(response, 'id="about-story"')
+        self.assertContains(response, 'id="about-vision-title"')
+        self.assertContains(response, 'Technology and creativity, working as one.')
         self.assertContains(response, 'Clever technology. Bold imagination.')
 
     def test_about_navigation_links_to_the_dedicated_page(self):
@@ -72,7 +76,7 @@ class HomePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'id="approach-page-title"')
         self.assertContains(response, 'id="approach-steps"')
-        for step in ('Discover', 'Define', 'Design', 'Build', 'Improve'):
+        for step in ('Discover', 'Define', 'Design', 'Build', 'Launch &amp; improve'):
             with self.subTest(step=step):
                 self.assertContains(response, f'>{step}<')
 
@@ -93,6 +97,8 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'name="email"')
         self.assertContains(response, 'name="message"')
         self.assertContains(response, 'https://wa.me/971541830378')
+        self.assertContains(response, '<option>AI and automation</option>')
+        self.assertContains(response, '<option>Data and intelligence</option>')
 
     def test_contact_thank_you_page_is_available(self):
         response = self.client.get(reverse('contact_thanks'))
@@ -137,14 +143,47 @@ class HomePageTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Ideas into')
-        self.assertContains(response, 'data-parallax-section', count=8)
+        self.assertContains(response, 'data-parallax-section', count=6)
         for service_id in (
-            'service-brand-identity',
-            'service-graphic-design',
-            'service-web-design',
-            'service-software-development',
-            'service-content-creation',
-            'service-social-media',
+            'service-software-solutions',
+            'service-ai-automation',
+            'service-data-intelligence',
+            'service-digital-commerce',
         ):
             with self.subTest(service_id=service_id):
                 self.assertContains(response, f'id="{service_id}"')
+        self.assertContains(response, 'Human review and clear boundaries')
+
+    def test_public_pages_have_canonical_urls_and_shared_footer_links(self):
+        expected_paths = {
+            'home': '/',
+            'about': '/about/',
+            'services': '/services/',
+            'work': '/work/',
+            'approach': '/approach/',
+            'contact': '/contact/',
+        }
+        for page_name, path in expected_paths.items():
+            with self.subTest(page=page_name):
+                response = self.client.get(reverse(page_name))
+                self.assertContains(
+                    response,
+                    f'<link rel="canonical" href="https://bodhix-innovations.netlify.app{path}">',
+                )
+                self.assertContains(response, 'aria-label="Footer navigation"')
+                self.assertContains(response, 'aria-label="Service links"')
+
+    def test_static_export_seo_files_list_only_public_pages(self):
+        sitemap = ElementTree.fromstring(build_sitemap())
+        namespace = {'sitemap': SITEMAP_NAMESPACE}
+        urls = [
+            node.text.removeprefix('https://bodhix-innovations.netlify.app')
+            for node in sitemap.findall('sitemap:url/sitemap:loc', namespace)
+        ]
+
+        self.assertEqual(urls, list(SITEMAP_PATHS))
+        self.assertNotIn('/contact/thanks/', urls)
+        self.assertIn(
+            b'Sitemap: https://bodhix-innovations.netlify.app/sitemap.xml',
+            build_robots_txt(),
+        )

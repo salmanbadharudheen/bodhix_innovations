@@ -6,11 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Tell BODHIX Innovations about your project. Send an enquiry or connect with us on WhatsApp.">
   <meta name="theme-color" content="#f7f7f5">
+  <link rel="canonical" href="{{ site_base_url }}{% url 'contact' %}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — BODHIX Innovations">
+  <meta property="og:description" content="Tell us about your project or connect with BODHIX Innovations on WhatsApp.">
+  <meta property="og:url" content="{{ site_base_url }}{% url 'contact' %}">
   <title>Contact — BODHIX Innovations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=37">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=38">
   <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
 </head>
 <body class="contact-page contact-page--form">
@@ -73,12 +78,10 @@
             <span>What do you need?</span>
             <select name="service">
               <option value="">Choose a service</option>
-              <option>Brand identity</option>
-              <option>Graphic design</option>
-              <option>Web design and development</option>
-              <option>Software development</option>
-              <option>Content creation</option>
-              <option>Social media</option>
+              <option>Software solutions</option>
+              <option>AI and automation</option>
+              <option>Data and intelligence</option>
+              <option>Digital commerce</option>
               <option>Something else</option>
             </select>
           </label>
@@ -93,14 +96,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
-      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
-    </a>
-    <p>We turn ideas into experiences.</p>
-    <span>© {% now "Y" %} BODHIX Innovations</span>
-    <a href="#top">Back to top ↑</a>
-  </footer>
+  {% include 'website/includes/site_footer.html' %}
   {% include 'website/includes/whatsapp_link.html' %}
 </body>
 </html>

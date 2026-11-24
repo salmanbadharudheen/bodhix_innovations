@@ -1,0 +1,35 @@
+{% load static %}
+<footer class="site-footer">
+  <div class="site-footer__main">
+    <div class="site-footer__brand">
+      <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
+        <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
+      </a>
+      <p>We turn ideas into experiences through thoughtful design and technology.</p>
+    </div>
+    <nav class="site-footer__links" aria-label="Footer navigation">
+      <h2>Explore</h2>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'work' %}">Work</a>
+      <a href="{% url 'approach' %}">Our approach</a>
+    </nav>
+    <nav class="site-footer__links" aria-label="Service links">
+      <h2>Services</h2>
+      <a href="{% url 'services' %}#service-software-solutions">Software solutions</a>
+      <a href="{% url 'services' %}#service-ai-automation">AI &amp; automation</a>
+      <a href="{% url 'services' %}#service-data-intelligence">Data &amp; intelligence</a>
+      <a href="{% url 'services' %}#service-digital-commerce">Digital commerce</a>
+    </nav>
+    <div class="site-footer__links">
+      <h2>Start a conversation</h2>
+      <a href="{% url 'contact' %}">Send a project enquiry</a>
+      <a href="mailto:info@bodhixinnovations.com">info@bodhixinnovations.com</a>
+      <a href="https://wa.me/971541830378" target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <span>© {% now "Y" %} BODHIX Innovations</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>

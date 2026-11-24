@@ -28,6 +28,7 @@ django.setup()
 from django.conf import settings
 from django.core.management import call_command
 from django.test import Client
+from website.seo import build_robots_txt, build_sitemap
 
 
 def write_page(path: str, content: bytes) -> None:
@@ -72,6 +73,9 @@ for url, output_path in pages:
             f'Unable to render {url}: HTTP {response.status_code}'
         )
     write_page(output_path, response.content)
+
+write_page('robots.txt', build_robots_txt())
+write_page('sitemap.xml', build_sitemap())
 
 call_command(
     'collectstatic',

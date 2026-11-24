@@ -6,11 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Learn how BODHIX Innovations takes ideas from discovery through design, building, launch and improvement.">
   <meta name="theme-color" content="#f7f7f5">
+  <link rel="canonical" href="{{ site_base_url }}{% url 'approach' %}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Our Approach — BODHIX Innovations">
+  <meta property="og:description" content="A thoughtful, collaborative process from discovery through launch and ongoing improvement.">
+  <meta property="og:url" content="{{ site_base_url }}{% url 'approach' %}">
   <title>Our Approach — BODHIX Innovations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=37">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=38">
   <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
 </head>
 <body>
@@ -53,7 +58,7 @@
           <li><span>02</span>Define</li>
           <li><span>03</span>Design</li>
           <li><span>04</span>Build</li>
-          <li><span>05</span>Improve</li>
+          <li><span>05</span>Launch &amp; improve</li>
         </ol>
       </div>
       <div class="approach-page-hero__foot">
@@ -93,7 +98,7 @@
         </li>
         <li>
           <span class="approach-steps__number">05</span>
-          <div><h3>Improve</h3><p>We launch, learn from how the work is used and identify opportunities to make it better over time.</p></div>
+          <div><h3>Launch &amp; improve</h3><p>We launch, learn from how the work is used and identify opportunities to make it better over time.</p></div>
           <span class="approach-steps__focus">Launch / Learn / Evolve</span>
         </li>
       </ol>
@@ -111,14 +116,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <a class="brand-logo-link brand-logo-link--footer" href="{% url 'home' %}#top">
-      <img class="brand-logo brand-logo--footer" src="{% static 'website/images/bodhix_innovations_logo.png' %}" alt="BODHIX Innovations">
-    </a>
-    <p>We turn ideas into experiences.</p>
-    <span>© {% now "Y" %} BODHIX Innovations</span>
-    <a href="#top">Back to top ↑</a>
-  </footer>
+  {% include 'website/includes/site_footer.html' %}
   {% include 'website/includes/whatsapp_link.html' %}
 </body>
 </html>

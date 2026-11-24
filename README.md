@@ -31,7 +31,8 @@ Form submissions can also be reviewed in the Netlify dashboard.
 
 The site is deployed as static HTML generated from the Django templates. Push
 the repository to the connected Netlify site; `netlify.toml` runs the export
-and publishes the `dist/` directory.
+and publishes the `dist/` directory. The export includes root-level
+`sitemap.xml` and `robots.txt` files for search engines.
 
 To build the static deployment locally:
 
@@ -44,3 +45,5 @@ The output is written to `dist/`, with `/about/index.html`,
 `/services/index.html`, `/work/index.html`, `/approach/index.html`, and
 `/contact/index.html` for the dedicated pages, plus the contact confirmation
 at `/contact/thanks/index.html` and copies of the Django static and media assets.
+The sitemap lists the public site pages and intentionally excludes the contact
+confirmation page.
