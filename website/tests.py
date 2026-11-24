@@ -19,15 +19,19 @@ class HomePageTests(TestCase):
         self.assertNotContains(response, '<video')
         self.assertNotContains(response, 'showreel')
         self.assertNotContains(response, 'video-note')
-        self.assertContains(response, '1 of 5: Ideas into experiences')
-        self.assertContains(response, '2 of 5: Software solutions')
-        self.assertContains(response, '3 of 5: AI and automation')
-        self.assertContains(response, '4 of 5: Data and intelligence')
-        self.assertContains(response, '5 of 5: Digital commerce')
+        self.assertContains(response, '1 of 7: Ideas into experiences')
+        self.assertContains(response, '2 of 7: Software solutions')
+        self.assertContains(response, '3 of 7: AI and automation')
+        self.assertContains(response, '4 of 7: Data and intelligence')
+        self.assertContains(response, '5 of 7: Digital commerce')
+        self.assertContains(response, '6 of 7: Brand identity')
+        self.assertContains(response, '7 of 7: Creative marketing')
         self.assertContains(response, 'hero__slide--software')
         self.assertContains(response, 'hero__slide--ai')
         self.assertContains(response, 'hero__slide--data')
         self.assertContains(response, 'hero__slide--commerce')
+        self.assertContains(response, 'hero__slide--brand')
+        self.assertContains(response, 'hero__slide--graphic')
         self.assertContains(response, 'software%20development.jpeg')
         self.assertContains(response, 'hero__diagram--ai')
         self.assertContains(response, 'hero__diagram--data')
@@ -44,10 +48,21 @@ class HomePageTests(TestCase):
             'service-ai-automation',
             'service-data-intelligence',
             'service-digital-commerce',
+            'service-brand-identity',
+            'service-graphic-design',
         ):
             with self.subTest(service_id=service_id):
                 self.assertContains(response, f'href="#{service_id}"')
                 self.assertContains(response, f'id="{service_id}"')
+
+    def test_homepage_keeps_marketing_and_branding_services(self):
+        response = self.client.get(reverse('home'))
+
+        for service_id in ('service-brand-identity', 'service-graphic-design', 'service-content-creation', 'service-social-media'):
+            with self.subTest(service_id=service_id):
+                self.assertContains(response, f'id="{service_id}"')
+        self.assertContains(response, 'Brand &amp; marketing')
+        self.assertContains(response, 'Social media management')
 
     def test_services_navigation_opens_the_dedicated_service_page(self):
         response = self.client.get(reverse('home'))
@@ -99,6 +114,8 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'https://wa.me/971541830378')
         self.assertContains(response, '<option>AI and automation</option>')
         self.assertContains(response, '<option>Data and intelligence</option>')
+        self.assertContains(response, '<option>Brand identity</option>')
+        self.assertContains(response, '<option>Social media management</option>')
 
     def test_contact_thank_you_page_is_available(self):
         response = self.client.get(reverse('contact_thanks'))
@@ -149,10 +166,15 @@ class HomePageTests(TestCase):
             'service-ai-automation',
             'service-data-intelligence',
             'service-digital-commerce',
+            'service-brand-identity',
+            'service-graphic-design',
+            'service-content-creation',
+            'service-social-media',
         ):
             with self.subTest(service_id=service_id):
                 self.assertContains(response, f'id="{service_id}"')
         self.assertContains(response, 'Human review and clear boundaries')
+        self.assertContains(response, 'Brand &amp; marketing')
 
     def test_public_pages_have_canonical_urls_and_shared_footer_links(self):
         expected_paths = {

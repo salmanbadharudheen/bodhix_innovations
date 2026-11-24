@@ -4,18 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore BODHIX Innovations services across software solutions, AI and automation, data and intelligence, and digital commerce.">
+  <meta name="description" content="Explore BODHIX Innovations services across software, AI and data, digital commerce, brand identity, creative content and social media.">
   <meta name="theme-color" content="#f7f7f5">
   <link rel="canonical" href="{{ site_base_url }}{% url 'services' %}">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Services — BODHIX Innovations">
-  <meta property="og:description" content="Software, automation, data and commerce experiences shaped around your business.">
+  <meta property="og:description" content="Technology, branding and creative marketing shaped around your business.">
   <meta property="og:url" content="{{ site_base_url }}{% url 'services' %}">
   <title>Services — BODHIX Innovations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=38">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=39">
   <script src="{% static 'website/js/site.js' %}?v=17" defer></script>
 </head>
 <body class="service-page">
@@ -51,12 +51,12 @@
       <div class="service-page-hero__content">
         <p class="eyebrow eyebrow--light"><span class="status-dot"></span> What we do</p>
         <h1 id="services-page-title">Ideas into<br><span>experiences.</span></h1>
-        <p>From software and automation to data and commerce, we bring thoughtful design and technology together around real business needs.</p>
+        <p>From software and digital commerce to brand identity, content and social media, we connect technology and creativity around your goals.</p>
         <a class="button button--light" href="#service-software-solutions">Explore our services <span aria-hidden="true">↓</span></a>
       </div>
       <div class="service-page-hero__foot">
         <span>DESIGN / BUILD / GROW</span>
-        <span>01 — 04</span>
+        <span>01 — 08</span>
       </div>
     </section>
 
@@ -72,10 +72,10 @@
           <h2 id="software-solutions-title">Software solutions</h2>
           <p>Plan and build digital products around your users, your operations and the way your business needs to work.</p>
           <ul>
+            <li>Website design and development</li>
             <li>Web and mobile applications</li>
             <li>Custom business and internal tools</li>
-            <li>System and API integrations</li>
-            <li>Testing, launch and support</li>
+            <li>System integrations, testing and support</li>
           </ul>
           <a class="text-link" href="#services-contact">Discuss software solutions <span aria-hidden="true">↗</span></a>
         </div>
@@ -157,6 +157,74 @@
           </ul>
           <a class="text-link" href="#services-contact">Discuss digital commerce <span aria-hidden="true">↗</span></a>
         </div>
+      </div>
+    </section>
+
+    <section class="creative-services section-wrap" id="brand-marketing" aria-labelledby="creative-services-title">
+      <div class="section-label"><span>05</span> Brand &amp; marketing</div>
+      <div class="section-heading">
+        <div><h2 id="creative-services-title">Make your brand<br>mean something.</h2></div>
+        <p>Build recognition and connection with a clear identity, thoughtful design and consistent content.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card service-card--brand" id="service-brand-identity">
+          <span class="service-card__number">05</span>
+          <figure class="service-card__media">
+            <img src="{% static 'website/images/service-brand.jpg' %}" alt="Brand designer developing a visual identity on a tablet" loading="lazy">
+            <span>Identity / 05</span>
+          </figure>
+          <h3>Brand identity</h3>
+          <p>Build a memorable brand with a strong look and voice.</p>
+          <ul class="service-card__list">
+            <li>Logo design and variations</li>
+            <li>Colour, typography and patterns</li>
+            <li>Brand voice and positioning</li>
+            <li>Guidelines and social kits</li>
+          </ul>
+          <a href="#services-contact" aria-label="Discuss brand identity">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card service-card--graphic" id="service-graphic-design">
+          <span class="service-card__number">06</span>
+          <figure class="service-card__media">
+            <img src="{% static 'website/images/service-graphic.jpg' %}" alt="Paintbrushes creating a vibrant graphic design palette" loading="lazy">
+            <span>Visuals / 06</span>
+          </figure>
+          <h3>Graphic design</h3>
+          <p>Create creative visuals that capture attention and communicate clearly.</p>
+          <ul class="service-card__list">
+            <li>Social media creatives</li>
+            <li>Print, signage and presentations</li>
+            <li>Advertising and promotions</li>
+            <li>Packaging and label design</li>
+          </ul>
+          <a href="#services-contact" aria-label="Discuss graphic design">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card service-card--marketing" id="service-content-creation">
+          <span class="service-card__number">07</span>
+          <div class="service-card__symbol" aria-hidden="true">▶</div>
+          <h3>Content creation</h3>
+          <p>Photos, videos and words that tell your story with purpose.</p>
+          <ul class="service-card__list">
+            <li>Photography and videography</li>
+            <li>Reels and short-form video</li>
+            <li>Editing and motion graphics</li>
+            <li>Copywriting and storytelling</li>
+          </ul>
+          <a href="#services-contact" aria-label="Discuss content creation">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="service-card service-card--marketing" id="service-social-media">
+          <span class="service-card__number">08</span>
+          <div class="service-card__symbol service-card__symbol--violet" aria-hidden="true">◎</div>
+          <h3>Social media management</h3>
+          <p>Build a consistent, engaging presence that connects with your audience.</p>
+          <ul class="service-card__list">
+            <li>Strategy and content calendars</li>
+            <li>Content, captions and scheduling</li>
+            <li>Community engagement</li>
+            <li>Paid campaigns and reporting</li>
+          </ul>
+          <a href="#services-contact" aria-label="Discuss social media management">Discuss this service <span aria-hidden="true">↗</span></a>
+        </article>
       </div>
     </section>
 
