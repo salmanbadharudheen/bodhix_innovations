@@ -1,15 +1,8 @@
-from django.conf import settings
 from django.shortcuts import render
 
 
 def home(request):
-    return render(
-        request,
-        'website/home.html',
-        {
-            'media_url': settings.MEDIA_URL,
-        },
-    )
+    return render(request, 'website/home.html')
 
 
 def about(request):

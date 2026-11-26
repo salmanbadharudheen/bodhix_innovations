@@ -15,9 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=40">
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=43">
   <script src="{% static 'website/js/site.js' %}?v=18" defer></script>
-  <script src="{% static 'website/js/intro-universe.js' %}?v=14" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -62,7 +61,7 @@
             </div>
           </article>
           <article class="hero__slide hero__slide--software" role="group" aria-roledescription="slide" aria-label="2 of 7: Software solutions" aria-hidden="true" inert>
-            <img src="{{ media_url }}software%20development.jpeg" alt="Software developer working with a laptop and connected devices" loading="lazy">
+            <img src="{% static 'website/images/software-dark-abstract.svg' %}" alt="Colorful software dashboard and code illustration on a dark background" loading="lazy">
             <div class="hero__scrim" aria-hidden="true"></div>
             <div class="hero__copy">
               <p class="eyebrow eyebrow--light">Engineering <span>01 / 06</span></p>
@@ -114,8 +113,8 @@
               </div>
             </div>
           </article>
-          <article class="hero__slide hero__slide--web hero__slide--commerce" role="group" aria-roledescription="slide" aria-label="5 of 7: Digital commerce" aria-hidden="true" inert>
-            <img src="{% static 'website/images/service-web.jpg' %}?v=2" alt="Digital commerce analytics displayed on a laptop" loading="lazy">
+          <article class="hero__slide hero__slide--commerce" role="group" aria-roledescription="slide" aria-label="5 of 7: Digital commerce" aria-hidden="true" inert>
+            <img src="{% static 'website/images/software-dark-abstract.svg' %}" alt="Colorful software dashboard and code illustration on a dark background" loading="lazy">
             <div class="hero__scrim" aria-hidden="true"></div>
             <div class="hero__copy">
               <p class="eyebrow eyebrow--light">Digital commerce <span>04 / 06</span></p>
@@ -180,18 +179,7 @@
         <div class="intro__headline">
           <h2 id="intro-title">We turn ideas<br>into <span class="gradient-text">experiences</span></h2>
           <div class="intro__visual" data-experience-visual aria-hidden="true">
-            <canvas class="intro__universe" data-intro-universe></canvas>
-            <div class="intro__visual-fallback">
-              <div class="intro__orbit intro__orbit--outer"><span>MAKE IT MATTER</span></div>
-              <div class="intro__orbit intro__orbit--inner"></div>
-              <div class="intro__visual-core">
-                <span class="intro__core-mark">B</span>
-                <span class="intro__core-label">IDEA / IMPACT</span>
-              </div>
-              <span class="intro__chip intro__chip--one">THINK</span>
-              <span class="intro__chip intro__chip--two">DESIGN</span>
-              <span class="intro__chip intro__chip--three">BUILD</span>
-            </div>
+            <img class="intro__visual-art" src="{% static 'website/images/intro-orb-hd.svg' %}?v=3" alt="">
           </div>
         </div>
         <div class="intro__bottom">
