@@ -1,8 +1,30 @@
+from html.parser import HTMLParser
 from django.test import TestCase
 from django.urls import reverse
 from xml.etree import ElementTree
 
 from .seo import SITEMAP_NAMESPACE, SITEMAP_PATHS, build_robots_txt, build_sitemap
+
+
+class CopyPunctuationParser(HTMLParser):
+    text_tags = {'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li'}
+
+    def __init__(self):
+        super().__init__()
+        self.active_tags = []
+        self.copy = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in self.text_tags:
+            self.active_tags.append(tag)
+
+    def handle_endtag(self, tag):
+        if self.active_tags and self.active_tags[-1] == tag:
+            self.active_tags.pop()
+
+    def handle_data(self, data):
+        if self.active_tags:
+            self.copy.append(data)
 
 
 class HomePageTests(TestCase):
@@ -76,8 +98,8 @@ class HomePageTests(TestCase):
         self.assertContains(response, 'id="about-page-title"')
         self.assertContains(response, 'id="about-story"')
         self.assertContains(response, 'id="about-vision-title"')
-        self.assertContains(response, 'Technology and creativity, working as one.')
-        self.assertContains(response, 'Clever technology. Bold imagination.')
+        self.assertContains(response, 'Technology and creativity working as one')
+        self.assertContains(response, 'Clever technology Bold imagination')
 
     def test_about_navigation_links_to_the_dedicated_page(self):
         for page_name in ('home', 'about', 'services', 'work', 'approach', 'contact', 'contact_thanks'):
@@ -194,6 +216,22 @@ class HomePageTests(TestCase):
                 )
                 self.assertContains(response, 'aria-label="Footer navigation"')
                 self.assertContains(response, 'aria-label="Service links"')
+
+    def test_headings_and_main_copy_have_no_commas_or_full_stops(self):
+        for page_name in (
+            'home',
+            'about',
+            'services',
+            'work',
+            'approach',
+            'contact',
+            'contact_thanks',
+        ):
+            with self.subTest(page=page_name):
+                response = self.client.get(reverse(page_name))
+                parser = CopyPunctuationParser()
+                parser.feed(response.content.decode())
+                self.assertNotRegex(''.join(parser.copy), r'[,.]')
 
     def test_static_export_seo_files_list_only_public_pages(self):
         sitemap = ElementTree.fromstring(build_sitemap())
