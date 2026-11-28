@@ -141,6 +141,53 @@ if (experienceSection) {
   }
 }
 
+const creativeShowcase = document.querySelector("[data-creative-showcase]");
+
+if (creativeShowcase) {
+  const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  if (motionPreference.matches || !("IntersectionObserver" in window)) {
+    creativeShowcase.classList.add("is-visible");
+  } else {
+    creativeShowcase.classList.add("has-motion");
+    const revealObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        creativeShowcase.classList.add("is-visible");
+        revealObserver.disconnect();
+      }
+    }, { threshold: 0.16 });
+    revealObserver.observe(creativeShowcase);
+
+    const parallaxLayers = Array.from(creativeShowcase.querySelectorAll("[data-creative-parallax]"));
+    let parallaxFrame;
+
+    const updateCreativeParallax = () => {
+      parallaxFrame = undefined;
+      const bounds = creativeShowcase.getBoundingClientRect();
+      if (bounds.bottom < -150 || bounds.top > window.innerHeight + 150) return;
+
+      const viewportCenter = window.innerHeight / 2;
+      const sectionCenter = bounds.top + bounds.height / 2;
+      const progress = Math.max(-1, Math.min(1, (viewportCenter - sectionCenter) / (window.innerHeight + bounds.height)));
+
+      parallaxLayers.forEach((layer) => {
+        const speed = Number(layer.dataset.creativeParallax);
+        layer.style.setProperty("--creative-parallax-y", `${progress * (Number.isFinite(speed) ? speed : 0) * 100}px`);
+      });
+    };
+
+    const requestCreativeParallax = () => {
+      if (!parallaxFrame) {
+        parallaxFrame = window.requestAnimationFrame(updateCreativeParallax);
+      }
+    };
+
+    window.addEventListener("scroll", requestCreativeParallax, { passive: true });
+    window.addEventListener("resize", requestCreativeParallax);
+    updateCreativeParallax();
+  }
+}
+
 const neuralCanvas = document.querySelector("[data-neural-background]");
 
 if (neuralCanvas) {
@@ -381,10 +428,18 @@ if (heroCarousel) {
 
   const showSlide = (index) => {
     activeIndex = (index + slides.length) % slides.length;
+    const nextIndex = (activeIndex + 1) % slides.length;
+    const prevIndex = (activeIndex - 1 + slides.length) % slides.length;
 
     slides.forEach((slide, slideIndex) => {
       const isActive = slideIndex === activeIndex;
+      const isNext = slideIndex === nextIndex;
+      const isPrev = slideIndex === prevIndex;
+
       slide.classList.toggle("is-active", isActive);
+      slide.classList.toggle("is-next-preview", isNext);
+      slide.classList.toggle("is-prev", isPrev);
+
       slide.setAttribute("aria-hidden", String(!isActive));
       slide.inert = !isActive;
     });
@@ -436,6 +491,7 @@ if (heroCarousel) {
     });
     document.addEventListener("visibilitychange", startAutoAdvance);
     reducedMotion.addEventListener("change", startAutoAdvance);
+    showSlide(activeIndex >= 0 ? activeIndex : 0);
     startAutoAdvance();
   }
 }

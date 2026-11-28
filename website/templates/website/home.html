@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=43">
-  <script src="{% static 'website/js/site.js' %}?v=18" defer></script>
+  <link rel="stylesheet" href="{% static 'website/css/style.css' %}?v=55">
+  <script src="{% static 'website/js/site.js' %}?v=25" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -52,7 +52,12 @@
             <div class="hero__scrim" aria-hidden="true"></div>
             <div class="hero__copy hero__copy--intro">
               <p class="eyebrow eyebrow--light"><span class="status-dot"></span> Creative technology studio</p>
-              <h1 class="hero__title" id="hero-title">Let’s think beyond<br><span>digital</span></h1>
+              <h1 class="hero__title hero__title--reveal" id="hero-title" aria-label="Let’s think beyond digital">
+                <span class="hero__reveal-word hero__reveal-word--plain hero__reveal-word--one">Let’s</span>
+                <span class="hero__reveal-word hero__reveal-word--plain hero__reveal-word--two">think</span>
+                <span class="hero__reveal-word hero__reveal-word--plain hero__reveal-word--three">beyond</span><br>
+                <span class="hero__reveal-word hero__reveal-word--accent">digital</span>
+              </h1>
               <p class="hero__description">We bring ambitious ideas to life with thoughtful design creative technology and stories people remember</p>
               <div class="hero__actions">
                 <a class="button button--light" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
@@ -61,7 +66,7 @@
             </div>
           </article>
           <article class="hero__slide hero__slide--software" role="group" aria-roledescription="slide" aria-label="2 of 7: Software solutions" aria-hidden="true" inert>
-            <img src="{% static 'website/images/software-dark-abstract.svg' %}" alt="Colorful software dashboard and code illustration on a dark background" loading="lazy">
+            <img src="{% static 'website/images/software-development.jpeg' %}" alt="Software development visual" loading="lazy">
             <div class="hero__scrim" aria-hidden="true"></div>
             <div class="hero__copy">
               <p class="eyebrow eyebrow--light">Engineering <span>01 / 06</span></p>
@@ -74,15 +79,8 @@
             </div>
           </article>
           <article class="hero__slide hero__slide--ai" role="group" aria-roledescription="slide" aria-label="3 of 7: AI and automation" aria-hidden="true" inert>
+            <img class="hero__ai-image" src="{% static 'website/images/ai-automation.jpg.jpeg' %}" alt="AI interface glowing across a person's face" loading="lazy">
             <div class="hero__scrim" aria-hidden="true"></div>
-            <div class="hero__diagram hero__diagram--ai" aria-hidden="true">
-              <span class="hero__diagram-label">IDEA / AUTOMATION</span>
-              <span class="hero__diagram-node hero__diagram-node--one">INPUT</span>
-              <span class="hero__diagram-node hero__diagram-node--two">ASSIST</span>
-              <span class="hero__diagram-node hero__diagram-node--three">ACTION</span>
-              <span class="hero__diagram-line hero__diagram-line--one"></span>
-              <span class="hero__diagram-line hero__diagram-line--two"></span>
-            </div>
             <div class="hero__copy">
               <p class="eyebrow eyebrow--light">Practical innovation <span>02 / 06</span></p>
               <h2 class="hero__title">AI &amp;<br><span>automation</span></h2>
@@ -142,6 +140,28 @@
           <article class="hero__slide hero__slide--graphic" role="group" aria-roledescription="slide" aria-label="7 of 7: Creative marketing" aria-hidden="true" inert>
             <img src="{% static 'website/images/service-graphic.jpg' %}?v=2" alt="Creative studio tools for graphic design and campaign content" loading="lazy">
             <div class="hero__scrim" aria-hidden="true"></div>
+            <div class="hero__creative-art" aria-hidden="true">
+              <figure class="hero__creative-diamond hero__creative-diamond--sun">
+                <img src="{% static 'website/images/service-graphic.jpg' %}" alt="" loading="lazy">
+              </figure>
+              <figure class="hero__creative-diamond hero__creative-diamond--violet">
+                <img src="{% static 'website/images/service-brand.jpg' %}" alt="" loading="lazy">
+              </figure>
+              <figure class="hero__creative-slice hero__creative-slice--one">
+                <img src="{% static 'website/images/service-brand.jpg' %}" alt="" loading="lazy">
+              </figure>
+              <figure class="hero__creative-slice hero__creative-slice--two">
+                <img src="{% static 'website/images/service-web.jpg' %}" alt="" loading="lazy">
+              </figure>
+              <figure class="hero__creative-slice hero__creative-slice--three">
+                <img src="{% static 'website/images/service-graphic.jpg' %}" alt="" loading="lazy">
+              </figure>
+              <figure class="hero__creative-slice hero__creative-slice--four">
+                <img src="{% static 'website/images/service-brand.jpg' %}" alt="" loading="lazy">
+              </figure>
+              <span class="hero__creative-orbit">IDEAS<br><span>IN MOTION</span></span>
+              <span class="hero__creative-caption">MAKE / MEANING</span>
+            </div>
             <div class="hero__copy">
               <p class="eyebrow eyebrow--light">Creative marketing <span>06 / 06</span></p>
               <h2 class="hero__title">Stories that<br><span>stand out</span></h2>
@@ -173,13 +193,13 @@
       <span class="intro__wash intro__wash--two" aria-hidden="true"></span>
       <span class="intro__word intro__word--left" aria-hidden="true">IDEAS</span>
       <span class="intro__word intro__word--right" aria-hidden="true">IMPACT</span>
-      <div class="section-label"><span>01</span> Who we are</div>
+      <div class="section-label">Who we are</div>
       <div class="intro__content">
         <p class="eyebrow">Where creativity meets technology</p>
         <div class="intro__headline">
           <h2 id="intro-title">We turn ideas<br>into <span class="gradient-text">experiences</span></h2>
           <div class="intro__visual" data-experience-visual aria-hidden="true">
-            <img class="intro__visual-art" src="{% static 'website/images/intro-orb-hd.svg' %}?v=3" alt="">
+            <img class="intro__visual-art" src="{% static 'website/images/intro-orb-hd.svg' %}?v=6" alt="">
           </div>
         </div>
         <div class="intro__bottom">
@@ -192,7 +212,7 @@
     <section class="services section-wrap" id="services" aria-labelledby="services-title">
       <div class="section-heading">
         <div>
-          <div class="section-label"><span>02</span> What we do</div>
+          <div class="section-label">What we do</div>
           <h2 id="services-title">Built for what’s next</h2>
         </div>
         <p>We bring technology branding and creative marketing together to support the whole journey—from shaping your identity to building useful digital experiences</p>
@@ -256,76 +276,93 @@
       </div>
     </section>
 
-    <section class="creative-services section-wrap" id="brand-marketing" aria-labelledby="creative-services-title">
-      <div class="section-label"><span>03</span> Brand &amp; marketing</div>
-      <div class="section-heading">
-        <div><h2 id="creative-services-title">Make your brand<br>mean something</h2></div>
-        <p>Build recognition and connection with a clear identity thoughtful design and consistent content</p>
+    <section class="creative-services creative-services--showcase section-wrap" id="brand-marketing" aria-labelledby="creative-services-title" data-creative-showcase>
+      <div class="section-label">Brand &amp; marketing / 03</div>
+      <div class="creative-services__heading">
+        <div>
+          <p class="eyebrow">Brand / content / campaigns</p>
+          <h2 id="creative-services-title">Make it<br><span>impossible to ignore</span></h2>
+        </div>
+        <p>We build distinctive brand worlds and campaign moments that turn a good idea into something people feel remember and share</p>
       </div>
-      <div class="service-grid">
-        <article class="service-card service-card--brand" id="service-brand-identity">
-          <span class="service-card__number">05</span>
-          <figure class="service-card__media">
-            <img src="{% static 'website/images/service-brand.jpg' %}" alt="Brand designer developing a visual identity on a tablet" loading="lazy">
-            <span>Identity / 05</span>
-          </figure>
-          <h3>Brand identity</h3>
-          <p>Build a memorable brand with a strong look and voice</p>
-          <ul class="service-card__list">
-            <li>Logo design and variations</li>
-            <li>Colour typography and patterns</li>
-            <li>Brand voice and positioning</li>
-            <li>Guidelines and social kits</li>
-          </ul>
-          <a href="#contact" aria-label="Discuss brand identity">Discuss this service <span aria-hidden="true">↗</span></a>
+
+      <div class="creative-stage">
+        <div class="creative-stage__copy">
+          <p class="creative-stage__kicker"><span aria-hidden="true"></span> BODHIX creative studio</p>
+          <h3>Ideas with<br>their own <span>gravity</span></h3>
+          <p>From the first spark to the final scroll-stopping detail we make the visual language that brings your story to life</p>
+          <a class="button button--light" href="#contact">Make something matter <span aria-hidden="true">↗</span></a>
+          <span class="creative-stage__edition">INDEPENDENT THINKING / EST. FOR WHAT’S NEXT</span>
+        </div>
+
+        <div class="creative-stage__art" aria-hidden="true">
+          <span class="creative-stage__diamond creative-stage__diamond--sun"></span>
+          <span class="creative-stage__diamond creative-stage__diamond--violet"></span>
+          <span class="creative-stage__flare" data-creative-parallax="0.12"></span>
+          <div class="creative-stage__photo-stack" data-creative-parallax="-0.08">
+            <figure class="creative-stage__photo creative-stage__photo--lead">
+              <img src="{% static 'website/images/service-brand.jpg' %}" alt="" loading="lazy">
+            </figure>
+            <figure class="creative-stage__photo creative-stage__photo--slice creative-stage__photo--slice-one">
+              <img src="{% static 'website/images/service-graphic.jpg' %}" alt="" loading="lazy">
+            </figure>
+            <figure class="creative-stage__photo creative-stage__photo--slice creative-stage__photo--slice-two">
+              <img src="{% static 'website/images/service-web.jpg' %}" alt="" loading="lazy">
+            </figure>
+            <figure class="creative-stage__photo creative-stage__photo--slice creative-stage__photo--slice-three">
+              <img src="{% static 'website/images/service-brand.jpg' %}" alt="" loading="lazy">
+            </figure>
+          </div>
+          <span class="creative-stage__orbit-label">IDEA <span aria-hidden="true">↗</span> IMPACT</span>
+          <span class="creative-stage__spark creative-stage__spark--one"></span>
+          <span class="creative-stage__spark creative-stage__spark--two"></span>
+          <span class="creative-stage__caption">A different point of view<br>changes everything.</span>
+        </div>
+        <span class="creative-stage__index">VISUAL STUDY / 01</span>
+      </div>
+
+      <div class="creative-catalog" role="group" aria-label="Creative marketing services">
+        <article class="creative-offering" id="service-brand-identity">
+          <span class="creative-offering__number">05</span>
+          <div class="creative-offering__intro">
+            <h3>Brand identity</h3>
+            <p>Build a memorable brand with a strong look and voice</p>
+            <a href="#contact" aria-label="Discuss brand identity">Explore identity <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul><li>Logo design and variations</li><li>Colour typography and patterns</li><li>Brand voice and positioning</li><li>Guidelines and social kits</li></ul>
         </article>
-        <article class="service-card service-card--graphic" id="service-graphic-design">
-          <span class="service-card__number">06</span>
-          <figure class="service-card__media">
-            <img src="{% static 'website/images/service-graphic.jpg' %}" alt="Paintbrushes creating a vibrant graphic design palette" loading="lazy">
-            <span>Visuals / 06</span>
-          </figure>
-          <h3>Graphic design</h3>
-          <p>Create creative visuals that capture attention and communicate clearly</p>
-          <ul class="service-card__list">
-            <li>Social media creatives</li>
-            <li>Print signage and presentations</li>
-            <li>Advertising and promotions</li>
-            <li>Packaging and label design</li>
-          </ul>
-          <a href="#contact" aria-label="Discuss graphic design">Discuss this service <span aria-hidden="true">↗</span></a>
+        <article class="creative-offering" id="service-graphic-design">
+          <span class="creative-offering__number">06</span>
+          <div class="creative-offering__intro">
+            <h3>Graphic design</h3>
+            <p>Create visuals that capture attention and communicate clearly</p>
+            <a href="#contact" aria-label="Discuss graphic design">Explore design <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul><li>Social media creatives</li><li>Print signage and presentations</li><li>Advertising and promotions</li><li>Packaging and label design</li></ul>
         </article>
-        <article class="service-card service-card--marketing" id="service-content-creation">
-          <span class="service-card__number">07</span>
-          <div class="service-card__symbol" aria-hidden="true">▶</div>
-          <h3>Content creation</h3>
-          <p>Photos videos and words that tell your story with purpose</p>
-          <ul class="service-card__list">
-            <li>Photography and videography</li>
-            <li>Reels and short-form video</li>
-            <li>Editing and motion graphics</li>
-            <li>Copywriting and storytelling</li>
-          </ul>
-          <a href="#contact" aria-label="Discuss content creation">Discuss this service <span aria-hidden="true">↗</span></a>
+        <article class="creative-offering" id="service-content-creation">
+          <span class="creative-offering__number">07</span>
+          <div class="creative-offering__intro">
+            <h3>Content creation</h3>
+            <p>Photos videos and words that tell your story with purpose</p>
+            <a href="#contact" aria-label="Discuss content creation">Explore content <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul><li>Photography and videography</li><li>Reels and short-form video</li><li>Editing and motion graphics</li><li>Copywriting and storytelling</li></ul>
         </article>
-        <article class="service-card service-card--marketing" id="service-social-media">
-          <span class="service-card__number">08</span>
-          <div class="service-card__symbol service-card__symbol--violet" aria-hidden="true">◎</div>
-          <h3>Social media management</h3>
-          <p>Build a consistent engaging presence that connects with your audience</p>
-          <ul class="service-card__list">
-            <li>Strategy and content calendars</li>
-            <li>Content captions and scheduling</li>
-            <li>Community engagement</li>
-            <li>Paid campaigns and reporting</li>
-          </ul>
-          <a href="#contact" aria-label="Discuss social media management">Discuss this service <span aria-hidden="true">↗</span></a>
+        <article class="creative-offering" id="service-social-media">
+          <span class="creative-offering__number">08</span>
+          <div class="creative-offering__intro">
+            <h3>Social media management</h3>
+            <p>Build a consistent engaging presence that connects with your audience</p>
+            <a href="#contact" aria-label="Discuss social media management">Explore social <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul><li>Strategy and content calendars</li><li>Content captions and scheduling</li><li>Community engagement</li><li>Paid campaigns and reporting</li></ul>
         </article>
       </div>
     </section>
 
     <section class="belief section-wrap" aria-labelledby="belief-title">
-      <div class="section-label"><span>04</span> The BODHIX difference</div>
+      <div class="section-label">The BODHIX difference</div>
       <div class="belief__main">
         <p class="eyebrow eyebrow--light">Clever technology Bold imagination</p>
         <h2 id="belief-title">Good ideas deserve<br>to go <span>further</span></h2>
@@ -342,7 +379,7 @@
     <section class="process section-wrap" id="process" aria-labelledby="process-title">
       <div class="section-heading">
         <div>
-          <div class="section-label"><span>05</span> How we work</div>
+          <div class="section-label">How we work</div>
           <h2 id="process-title">From first thought<br>to what’s next</h2>
         </div>
         <p>A considered process gives good ideas the space to become useful digital experiences</p>
